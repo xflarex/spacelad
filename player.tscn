@@ -1,0 +1,143 @@
+[gd_scene load_steps=17 format=3 uid="uid://qc7jgi6uukwf"]
+
+[ext_resource type="Script" uid="uid://cc2sh88hs68g3" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://cywtafao5yahr" path="res://Sprites/Player/spiked ship 3. small.green_.png" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="2_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://0b6ubhlb8vwg" path="res://bullet.tscn" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://cuvmfxc5mpxy1" path="res://Sprites/Player/spiked ship 3. small.green_left.png" id="2_hqtel"]
+[ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://background.tscn" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://b0juigrq111um" path="res://Sprites/Explosions/explosion1.png" id="3_dw050"]
+[ext_resource type="Texture2D" uid="uid://chfawvydr7taq" path="res://Sprites/Player/spiked ship 3. small.green_right.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="4_b26j0"]
+[ext_resource type="Texture2D" uid="uid://b3iecejgql0mc" path="res://Sprites/Shields/shields.png" id="10_urp6f"]
+[ext_resource type="Texture2D" uid="uid://0eutb8ydc56g" path="res://Sprites/Shields/shields2.png" id="11_bwjto"]
+[ext_resource type="Texture2D" uid="uid://b6wtyjxa2xvga" path="res://Sprites/Shields/shields3.png" id="12_606se"]
+[ext_resource type="Texture2D" uid="uid://djh2nl1eb2bat" path="res://Sprites/Shields/shields4.png" id="13_u1c27"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hqtel")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sweqy")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
+radius = 28.0
+height = 72.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op7ga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_urp6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_u1c27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_606se")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bwjto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_urp6f")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_hqtel")
+Bullet = ExtResource("2_dw050")
+metadata/_edit_group_ = true
+
+[node name="Background" parent="." instance=ExtResource("3_b26j0")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1jxqw")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(15, 0)
+rotation = 1.5708
+
+[node name="Muzzle2" type="Marker2D" parent="."]
+position = Vector2(15, -9)
+rotation = 1.5708
+
+[node name="Muzzle3" type="Marker2D" parent="."]
+position = Vector2(15, 9)
+rotation = 1.5708
+
+[node name="Muzzle4" type="Marker2D" parent="."]
+position = Vector2(15, -25)
+rotation = 1.309
+
+[node name="Muzzle5" type="Marker2D" parent="."]
+position = Vector2(15, 25)
+rotation = 1.8326
+
+[node name="Shield" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_op7ga")
+frame_progress = 0.62052
+
+[node name="Firerate" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="Shield" to="." method="_on_shield_animation_finished"]
+[connection signal="timeout" from="Firerate" to="." method="_on_firerate_timeout"]

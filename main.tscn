@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2jiqwk10qfbp"]
+
+[ext_resource type="Script" uid="uid://cqemaqwcwwter" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c6ak7xhe4ksc3" path="res://asteroid.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://y3fvfmgyflhj" path="res://hud.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://qc7jgi6uukwf" path="res://player.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://background.tscn" id="3_lquwl"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+asteroid_scene = ExtResource("2_1bvp3")
+
+[node name="Background" parent="." instance=ExtResource("3_lquwl")]
+
+[node name="Player" parent="." groups=["asteroids"] instance=ExtResource("3_h2yge")]
+
+[node name="AsteroidTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(375, 800)
+
+[node name="HUD" parent="." instance=ExtResource("3_1bvp3")]
+
+[connection signal="hit" from="Player" to="." method="game_over"]
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

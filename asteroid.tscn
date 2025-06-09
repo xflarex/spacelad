@@ -1,0 +1,121 @@
+[gd_scene load_steps=21 format=3 uid="uid://c6ak7xhe4ksc3"]
+
+[ext_resource type="Script" uid="uid://bc8ysdqtbcyvx" path="res://asteroid.gd" id="1_4nf2d"]
+[ext_resource type="Texture2D" uid="uid://bqoe1nayytqo7" path="res://Sprites/Asteroids/Brown/Brown_0.png" id="2_5aofk"]
+[ext_resource type="Texture2D" uid="uid://d0gthhxi8i8gu" path="res://Sprites/Asteroids/Brown/Brown_1.png" id="3_hbk28"]
+[ext_resource type="Texture2D" uid="uid://cvlpvurehrb25" path="res://Sprites/Asteroids/Brown/Brown_2.png" id="4_hxsah"]
+[ext_resource type="Texture2D" uid="uid://clwuw05ashvvh" path="res://Sprites/Asteroids/Brown/Brown_3.png" id="5_ms7na"]
+[ext_resource type="Texture2D" uid="uid://d2mmtfjs13osx" path="res://Sprites/Asteroids/Brown/Brown_4.png" id="6_tn6gl"]
+[ext_resource type="Texture2D" uid="uid://u6cqmbuxcb0s" path="res://Sprites/Asteroids/Gray/Gray_5.png" id="7_x7ygg"]
+[ext_resource type="Texture2D" uid="uid://evsl8ak2ss6g" path="res://Sprites/Asteroids/Gray/Gray_6.png" id="8_7mx3r"]
+[ext_resource type="Texture2D" uid="uid://drchygucipww0" path="res://Sprites/Asteroids/Gray/Gray_0.png" id="9_y0rg8"]
+[ext_resource type="Texture2D" uid="uid://bknrqd6pe7a6r" path="res://Sprites/Asteroids/Gray/Gray_1.png" id="10_mfnag"]
+[ext_resource type="Texture2D" uid="uid://bxmngybscirs3" path="res://Sprites/Asteroids/Gray/Gray_2.png" id="11_w4ydq"]
+[ext_resource type="Texture2D" uid="uid://c8ud8jrb6b8tx" path="res://Sprites/Asteroids/Gray/Gray_3.png" id="12_r77c6"]
+[ext_resource type="Texture2D" uid="uid://bql33h4vfhfu1" path="res://Sprites/Asteroids/Gray/Gray_4.png" id="13_27tf3"]
+[ext_resource type="Texture2D" uid="uid://vjhha3m0lm2c" path="res://Sprites/Asteroids/Red/Red_0.png" id="14_bafoe"]
+[ext_resource type="Texture2D" uid="uid://cchsmudrag202" path="res://Sprites/Asteroids/Red/Red_1.png" id="15_k0m8m"]
+[ext_resource type="Texture2D" uid="uid://bf1vslgxn67ad" path="res://Sprites/Asteroids/Red/Red_2.png" id="16_2kbu4"]
+[ext_resource type="Texture2D" uid="uid://snu27m8kw27v" path="res://Sprites/Asteroids/Red/Red_3.png" id="17_t4sn7"]
+[ext_resource type="Texture2D" uid="uid://cfpfushvirekj" path="res://Sprites/Asteroids/Red/Red_4.png" id="18_uajbl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kbu4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5aofk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hbk28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hxsah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ms7na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tn6gl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x7ygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7mx3r")
+}],
+"loop": false,
+"name": &"brown",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_y0rg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mfnag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w4ydq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r77c6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_27tf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x7ygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7mx3r")
+}],
+"loop": false,
+"name": &"gray",
+"speed": 45.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_bafoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k0m8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2kbu4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_t4sn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_uajbl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_x7ygg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7mx3r")
+}],
+"loop": false,
+"name": &"red",
+"speed": 45.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t4sn7"]
+radius = 27.0
+
+[node name="Asteroid" type="RigidBody2D" groups=["asteroids"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_4nf2d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2kbu4")
+animation = &"red"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t4sn7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
