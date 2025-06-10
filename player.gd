@@ -3,12 +3,13 @@ signal hit
 
 @export var Bullet : PackedScene
 @export var speed = 500 # Default player speed
-var screen_size
 var lives = 1
+var cannon_level = 3
+
+var screen_size
 var target = Vector2.ZERO
 var pause_status = true
 var ready_to_fire = true
-var cannon_level = 3
 
 
 func _ready() -> void:
@@ -104,7 +105,6 @@ func player_death():
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DeathTimer.start()
-	#get_tree().call_group("asteroids", "queue_free")
 	pause_status = true
 
 func _on_shield_animation_finished() -> void:

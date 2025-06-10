@@ -1,5 +1,5 @@
 extends CanvasLayer
-signal start_game
+signal start_games
 signal call_update_score
 
 
@@ -27,4 +27,4 @@ func _on_message_timer_timeout():
 
 func _on_start_button_pressed() -> void:
 	$StartButton.hide()
-	start_game.emit()
+	start_games.emit()

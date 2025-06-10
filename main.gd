@@ -1,6 +1,4 @@
 extends Node
-
-
 @export var asteroid_scene: PackedScene
 var score
 var screen_size
@@ -9,7 +7,6 @@ var asteroid_spawn_location = Vector2.ZERO
 func game_over() -> void:
 	$AsteroidTimer.stop()
 	$HUD.show_game_over()
-	#get_tree().call_group("asteroids", "queue_free")
 
 func new_game() -> void:
 	score = 0
@@ -23,13 +20,13 @@ func new_game() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = $Player.screen_size
-	#new_game()
+	$Menu.show_menu()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("quit_game"):
-		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-		get_tree().quit()
+		if Input.is_action_just_pressed("pause_game"):
+			get_tree().paused = true
+			$Menu.show_menu()
 
 func _on_start_timer_timeout() -> void:
 	$AsteroidTimer.start()

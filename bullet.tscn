@@ -8,6 +8,7 @@ radius = 2.0
 height = 20.0
 
 [node name="Bullet" type="Area2D"]
+z_index = -1
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
