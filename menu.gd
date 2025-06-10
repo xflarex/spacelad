@@ -1,15 +1,20 @@
 extends Control
+signal start_game
 var game_paused = false
 var button_released = false
-signal start_game
-
 var started = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	hide()
-
 func _process(delta: float) -> void:
+	unpause()
+
+func resume():
+	if started == true:
+		game_paused = false
+		button_released = true
+		hide()
+		get_tree().paused = false
+
+func unpause():
 	if game_paused == true && Input.is_action_just_released("pause_game"):
 		button_released = true # Pause menu keeps seeing the ESC key from the act of pausing and uses it to unpause immediately. Replace this trash hack you dumb bitch.
 	if game_paused == true && button_released == true:
@@ -25,16 +30,18 @@ func _on_quit_button_pressed() -> void:
 
 func show_menu():
 	show()
+	get_tree().paused = true
 	game_paused = true
 	button_released = false
 
 func _on_start_game_button_pressed() -> void:
 	if started == false:
 		started = true
+		game_paused = false
+		button_released = true
+		$MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer/StartGameButton.text = "Resume"
 		hide()
-		#game_paused = false
-		#button_released = false
-		#get_tree().paused = false
+		get_tree().paused = false
 		start_game.emit()
 	else:
-		print("Resume")
+		unpause()

@@ -4,6 +4,17 @@ var score
 var screen_size
 var asteroid_spawn_location = Vector2.ZERO
 
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	screen_size = $Player.screen_size
+	$Menu.show_menu()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+		if Input.is_action_just_pressed("pause_game"):
+			get_tree().paused = true
+			$Menu.show_menu()
+
 func game_over() -> void:
 	$AsteroidTimer.stop()
 	$HUD.show_game_over()
@@ -16,17 +27,6 @@ func new_game() -> void:
 	update_score(score)
 	$HUD.show_message("Prepare yourself.")
 	$Player.pause_status = false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	screen_size = $Player.screen_size
-	$Menu.show_menu()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-		if Input.is_action_just_pressed("pause_game"):
-			get_tree().paused = true
-			$Menu.show_menu()
 
 func _on_start_timer_timeout() -> void:
 	$AsteroidTimer.start()
@@ -41,9 +41,9 @@ func _on_asteroid_timer_timeout() -> void:
 	
 	add_child(asteroid)
 
-func update_score(newScore):
-	$HUD.update_score(newScore)
-
 func increase_score(points):
 	score += points
 	update_score(score)
+
+func update_score(newScore):
+	$HUD.update_score(newScore)
