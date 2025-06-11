@@ -1,19 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2jiqwk10qfbp"]
 
-[ext_resource type="Script" uid="uid://cqemaqwcwwter" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://c6ak7xhe4ksc3" path="res://asteroid.tscn" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://cqemaqwcwwter" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c6ak7xhe4ksc3" path="res://asteroid.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://y3fvfmgyflhj" path="res://hud.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://qc7jgi6uukwf" path="res://player.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://background.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://btttrkuv0ikhh" path="res://menu.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_ig7tw")
-asteroid_scene = ExtResource("2_1bvp3")
+script = ExtResource("1_lquwl")
+asteroid_scene = ExtResource("2_7mycd")
 
 [node name="Background" parent="." instance=ExtResource("3_lquwl")]
 
-[node name="Player" parent="." groups=["asteroids"] instance=ExtResource("3_h2yge")]
+[node name="Player" parent="." instance=ExtResource("3_h2yge")]
 
 [node name="AsteroidTimer" type="Timer" parent="."]
 wait_time = 0.5

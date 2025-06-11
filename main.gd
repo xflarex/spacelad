@@ -1,12 +1,12 @@
 extends Node
 @export var asteroid_scene: PackedScene
-var score
 var screen_size
 var asteroid_spawn_location = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = $Player.screen_size
+	$Menu.set_levels()
 	$Menu.show_menu()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,13 +18,14 @@ func _process(delta: float) -> void:
 func game_over() -> void:
 	$AsteroidTimer.stop()
 	$HUD.show_game_over()
+	await get_tree().create_timer(1.0).timeout
+	$Menu.game_over()
 
 func new_game() -> void:
-	score = 0
+	Globals.score = 0
 	$Player.start($StartPosition.position)
-	#$Player.show()
 	$StartTimer.start()
-	update_score(score)
+	update_score()
 	$HUD.show_message("Prepare yourself.")
 	$Player.pause_status = false
 
@@ -37,13 +38,13 @@ func _on_asteroid_timer_timeout() -> void:
 	
 	asteroid_spawn_location = Vector2(asteroidStart, 0)
 	asteroid.position = asteroid_spawn_location
-	asteroid.set_asteroid_motion(randi_range(-20, 20), randi_range(200, 275))
+	asteroid.set_asteroid_motion(randi_range(-20, 20), randi_range(Globals.asteroid_speed, Globals.asteroid_speed+75))
 	
 	add_child(asteroid)
 
 func increase_score(points):
-	score += points
-	update_score(score)
+	Globals.score += points
+	update_score()
 
-func update_score(newScore):
-	$HUD.update_score(newScore)
+func update_score():
+	$HUD.update_score()
