@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btttrkuv0ikhh"]
 
 [ext_resource type="FontFile" uid="uid://b0qraahbe8748" path="res://Fonts/Xolonium-Regular.ttf" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://baypl5ubgy3jl" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Script" uid="uid://baypl5ubgy3jl" path="res://Scripts/menu.gd" id="1_ouk20"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -130,7 +130,8 @@ custom_minimum_size = Vector2(63, 27)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_lti8b")
 theme_override_font_sizes/font_size = 22
-text = "1000"
+text = "0.5"
+horizontal_alignment = 1
 
 [node name="AsteroidFrequencySlider" type="HSlider" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 35)

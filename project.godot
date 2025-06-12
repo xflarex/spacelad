@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Ship="*res://ship.gd"
-Globals="*res://globals.gd"
+Ship="*res://Scripts/ship.gd"
+Globals="*res://Scripts/globals.gd"
 
 [display]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2jiqwk10qfbp"]
 
-[ext_resource type="Script" uid="uid://cqemaqwcwwter" path="res://main.gd" id="1_lquwl"]
-[ext_resource type="PackedScene" uid="uid://c6ak7xhe4ksc3" path="res://asteroid.tscn" id="2_7mycd"]
-[ext_resource type="PackedScene" uid="uid://y3fvfmgyflhj" path="res://hud.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://qc7jgi6uukwf" path="res://player.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://background.tscn" id="3_lquwl"]
-[ext_resource type="PackedScene" uid="uid://btttrkuv0ikhh" path="res://menu.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://cqemaqwcwwter" path="res://Scripts/main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c6ak7xhe4ksc3" path="res://Scenes/asteroid.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://y3fvfmgyflhj" path="res://Scenes/hud.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://qc7jgi6uukwf" path="res://Scenes/player.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://Scenes/background.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://btttrkuv0ikhh" path="res://Scenes/menu.tscn" id="6_7mycd"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lquwl")
