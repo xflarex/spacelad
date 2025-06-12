@@ -41,6 +41,9 @@ func _on_asteroid_timer_timeout() -> void:
 	asteroid.set_asteroid_motion(randi_range(-20, 20), randi_range(Globals.asteroid_speed, Globals.asteroid_speed+75))
 	
 	add_child(asteroid)
+	
+func modify_asteroid_timer(new_time):
+	$AsteroidTimer.wait_time = new_time
 
 func increase_score(points):
 	Globals.score += points

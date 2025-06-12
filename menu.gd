@@ -152,4 +152,12 @@ func _on_asteroid_speed_slider_drag_ended(value_changed: bool) -> void:
 
 
 func _on_asteroid_frequency_slider_drag_ended(value_changed: bool) -> void:
-	pass # Replace with function body.
+	get_parent().modify_asteroid_timer($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencySlider.value)
+
+
+func _on_asteroid_frequency_slider_value_changed(value: float) -> void:
+	$MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencyLabel.text = str($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencySlider.value)
+
+
+func _on_asteroid_speed_slider_value_changed(value: float) -> void:
+	$MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedLabel.text = str(int($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedSlider.value))
