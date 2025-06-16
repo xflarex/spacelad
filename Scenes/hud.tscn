@@ -1,25 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://y3fvfmgyflhj"]
+[gd_scene load_steps=3 format=3 uid="uid://jq1jm5tkk161"]
 
-[ext_resource type="FontFile" uid="uid://b0qraahbe8748" path="res://Fonts/Xolonium-Regular.ttf" id="1_37p78"]
-[ext_resource type="Script" uid="uid://boqfmc5ok2w16" path="res://Scripts/hud.gd" id="1_64ctp"]
+[ext_resource type="FontFile" uid="uid://bs5h67nxcmwns" path="res://Fonts/Xolonium-Regular.ttf" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://c110cbhj4u8vd" path="res://Scenes/hud.gd" id="1_fccik"]
 
 [node name="HUD" type="CanvasLayer"]
-process_mode = 3
-script = ExtResource("1_64ctp")
+script = ExtResource("1_fccik")
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -60.0
-offset_top = -78.0
-offset_right = -15.0
+offset_left = -40.0
+offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_37p78")
-theme_override_font_sizes/font_size = 64
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="Score" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.467717, 0.783806, 1, 1)
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 48
+text = "0000"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Message" type="Label" parent="."]
 anchors_preset = 8
@@ -28,13 +35,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -39.0
+offset_top = -11.5
 offset_right = 20.0
-offset_bottom = 39.0
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_37p78")
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_color = Color(0.467717, 0.783806, 1, 1)
+theme_override_colors/font_shadow_color = Color(4.33177e-07, 0.240126, 0.366367, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_e0onf")
+theme_override_font_sizes/font_size = 72
+text = "Prepare yourself."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,4 +53,4 @@ vertical_alignment = 1
 wait_time = 2.0
 one_shot = true
 
-[connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="timeout" from="MessageTimer" to="." method="_on_announcement_label_timer_timeout"]

@@ -1,15 +1,14 @@
 extends RigidBody2D
+@export var points = 100
 var asteroidDirection
 var asteroidSpeed
 var rotation_speed
-@export var points = 100
 var markedForDeath = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var asteroids = Array($AnimatedSprite2D.sprite_frames.get_animation_names())
 	$AnimatedSprite2D.animation = asteroids.pick_random()
-	#$AnimatedSprite2D.play()
 	rotation_speed = 2 + randf()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,7 +26,8 @@ func set_asteroid_motion(x, y):
 func asteroid_death():
 	$AnimatedSprite2D.play()
 	if markedForDeath == false:
-		get_parent().increase_score(points)
+		Game.score += points
+		
 		markedForDeath = true
 
 func _on_animated_sprite_2d_animation_finished() -> void:

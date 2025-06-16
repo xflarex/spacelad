@@ -1,111 +1,91 @@
-[gd_scene load_steps=17 format=3 uid="uid://qc7jgi6uukwf"]
+[gd_scene load_steps=14 format=3 uid="uid://bcvkuddrqymwy"]
 
-[ext_resource type="Script" uid="uid://cc2sh88hs68g3" path="res://Scripts/player.gd" id="1_hqtel"]
-[ext_resource type="Texture2D" uid="uid://cywtafao5yahr" path="res://Sprites/Player/spiked ship 3. small.green_.png" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="2_1jxqw"]
-[ext_resource type="PackedScene" uid="uid://0b6ubhlb8vwg" path="res://Scenes/bullet.tscn" id="2_dw050"]
-[ext_resource type="Texture2D" uid="uid://cuvmfxc5mpxy1" path="res://Sprites/Player/spiked ship 3. small.green_left.png" id="2_hqtel"]
-[ext_resource type="PackedScene" uid="uid://j1l28gcipexi" path="res://Scenes/background.tscn" id="3_b26j0"]
-[ext_resource type="Texture2D" uid="uid://b0juigrq111um" path="res://Sprites/Explosions/explosion1.png" id="3_dw050"]
-[ext_resource type="Texture2D" uid="uid://chfawvydr7taq" path="res://Sprites/Player/spiked ship 3. small.green_right.png" id="3_sweqy"]
-[ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="4_b26j0"]
-[ext_resource type="Texture2D" uid="uid://b3iecejgql0mc" path="res://Sprites/Shields/shields.png" id="10_urp6f"]
-[ext_resource type="Texture2D" uid="uid://0eutb8ydc56g" path="res://Sprites/Shields/shields2.png" id="11_bwjto"]
-[ext_resource type="Texture2D" uid="uid://b6wtyjxa2xvga" path="res://Sprites/Shields/shields3.png" id="12_606se"]
-[ext_resource type="Texture2D" uid="uid://djh2nl1eb2bat" path="res://Sprites/Shields/shields4.png" id="13_u1c27"]
+[ext_resource type="Script" uid="uid://j2i23wymw14s" path="res://Scripts/player.gd" id="1_fkybt"]
+[ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="1_vgqql"]
+[ext_resource type="Texture2D" uid="uid://b0juigrq111um" path="res://Sprites/Explosions/explosion1.png" id="2_fkybt"]
+[ext_resource type="PackedScene" uid="uid://6rf754jltt1f" path="res://Scenes/bullet.tscn" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="3_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://cywtafao5yahr" path="res://Sprites/Player/spiked ship 3. small.green_.png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://b3iecejgql0mc" path="res://Sprites/Shields/shields.png" id="7_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://0eutb8ydc56g" path="res://Sprites/Shields/shields2.png" id="8_gymyn"]
+[ext_resource type="Texture2D" uid="uid://b6wtyjxa2xvga" path="res://Sprites/Shields/shields3.png" id="9_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://djh2nl1eb2bat" path="res://Sprites/Shields/shields4.png" id="10_ukyrk"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_8erm5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1jxqw")
+"texture": ExtResource("1_vgqql")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_dw050")
+"texture": ExtResource("2_fkybt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_b26j0")
+"texture": ExtResource("3_x3wgy")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_i3pqv")
+"texture": ExtResource("4_3smsa")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_hqtel")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_sweqy")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
-radius = 28.0
-height = 72.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vgqql"]
+radius = 57.0
+height = 132.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_op7ga"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dp3o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_urp6f")
+"texture": ExtResource("7_tx1dd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_bwjto")
+"texture": ExtResource("8_gymyn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_606se")
+"texture": ExtResource("9_pu2lt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_u1c27")
+"texture": ExtResource("10_ukyrk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_606se")
+"texture": ExtResource("9_pu2lt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_bwjto")
+"texture": ExtResource("8_gymyn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_urp6f")
+"texture": ExtResource("7_tx1dd")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [node name="Player" type="Area2D"]
-script = ExtResource("1_hqtel")
-Bullet = ExtResource("2_dw050")
-metadata/_edit_group_ = true
-
-[node name="Background" parent="." instance=ExtResource("3_b26j0")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_fkybt")
+Bullet = ExtResource("2_x3wgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_2hs0m")
-autoplay = "default"
+sprite_frames = SubResource("SpriteFrames_8erm5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_1jxqw")
+shape = SubResource("CapsuleShape2D_vgqql")
+
+[node name="CannonTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="Muzzle" type="Marker2D" parent="."]
@@ -121,23 +101,17 @@ position = Vector2(15, 9)
 rotation = 1.5708
 
 [node name="Muzzle4" type="Marker2D" parent="."]
-position = Vector2(15, -25)
+position = Vector2(0, -50)
 rotation = 1.309
 
 [node name="Muzzle5" type="Marker2D" parent="."]
-position = Vector2(15, 25)
+position = Vector2(0, 50)
 rotation = 1.8326
 
 [node name="Shield" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-sprite_frames = SubResource("SpriteFrames_op7ga")
-frame_progress = 0.62052
-
-[node name="Firerate" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
+sprite_frames = SubResource("SpriteFrames_7dp3o")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CannonTimer" to="." method="_on_cannon_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="animation_finished" from="Shield" to="." method="_on_shield_animation_finished"]
-[connection signal="timeout" from="Firerate" to="." method="_on_firerate_timeout"]
