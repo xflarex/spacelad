@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://do6b2dih6cj5d" path="res://Scripts/menu.gd" id="1_ouk20"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("cannon_level_label", "hull_level_label", "thruster_level_label", "cannon_level_button", "hull_level_button", "thruster_level_button", "cannon_cost_label", "hull_cost_label", "thruster_cost_label", "start_game_button", "reset_stats_button", "quit_button")]
-process_mode = 3
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
