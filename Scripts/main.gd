@@ -4,6 +4,7 @@ extends Node
 var asteroid_spawn_location = Vector2.ZERO
 
 func _ready() -> void:
+	$Player.hide()
 	$Menu.set_levels()
 	$Menu.show_menu()
 
@@ -23,6 +24,8 @@ func _on_asteroid_timer_timeout() -> void:
 
 func _on_menu_start_game() -> void:
 	$HUD/MessageTimer.start()
+	$HUD.show_message("Prepare yourself.")
+	$Player.show()
 	await get_tree().create_timer(2.0).timeout
 	$AsteroidTimer.start()
 

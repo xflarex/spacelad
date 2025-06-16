@@ -6,7 +6,6 @@ var ready_to_fire = true
 
 func _ready() -> void:
 	Game.screen_size = get_viewport_rect().size
-	#hide() # Hide on game start
 	start()
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +22,6 @@ func _input(event: InputEvent) -> void:
 func start():
 	position.x = Game.screen_size.x / 2
 	position.y = Game.screen_size.y * 0.75
-	show() 
 	$CollisionShape2D.disabled = false
 	$Shield.hide()
 
