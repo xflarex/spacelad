@@ -25,10 +25,8 @@ func set_asteroid_motion(x, y):
 
 func asteroid_death():
 	$AnimatedSprite2D.play()
-	if markedForDeath == false:
-		Game.score += points
-		
-		markedForDeath = true
+	$CollisionShape2D.set_deferred("disabled", true)
+	increase_score()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	$AnimatedSprite2D.stop()
@@ -36,3 +34,9 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func clear_asteroids():
 	get_tree().call_group("asteroids", "queue_free")
+
+func increase_score():
+	if markedForDeath == false: # Prevent multiple bullet counting score from same enemy
+		Game.score += points
+		markedForDeath = true
+	

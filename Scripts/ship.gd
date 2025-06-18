@@ -8,4 +8,4 @@ var max_hull = 5
 var max_cannons = 3
 var max_thrusters = 5
 
-var speed = 600
+var speed = 1000
