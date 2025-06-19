@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpb5cvnfw5duo"
-path="res://.godot/imported/straight flight 2.png-2ec76b2ecaa7866a7f6329d3742e999f.ctex"
+uid="uid://daar46316fx4a"
+path="res://.godot/imported/working mech v2GSH.png-237c38b63559a9dd00ad2fbd262ada73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mech 1/old/flying/straight flight 2.png"
-dest_files=["res://.godot/imported/straight flight 2.png-2ec76b2ecaa7866a7f6329d3742e999f.ctex"]
+source_file="res://Sprites/Player/working mech v2GSH.png"
+dest_files=["res://.godot/imported/working mech v2GSH.png-237c38b63559a9dd00ad2fbd262ada73.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxn4p1fdp5dac"
-path="res://.godot/imported/mech 1 idle gun.png-236fde13794545cd0d5fb129bc6b2ac7.ctex"
+path="res://.godot/imported/mech 1 idle gun.png-d0c36eb2c9f400c0ac953b638477215a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mech 1/old/idle/mech 1 idle gun.png"
-dest_files=["res://.godot/imported/mech 1 idle gun.png-236fde13794545cd0d5fb129bc6b2ac7.ctex"]
+source_file="res://mech 1/old/idle/mech 1 idle gun.png"
+dest_files=["res://.godot/imported/mech 1 idle gun.png-d0c36eb2c9f400c0ac953b638477215a.ctex"]
 
 [params]
 

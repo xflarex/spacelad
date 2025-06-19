@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdv0dusn0xwf8"
-path="res://.godot/imported/projectile.png-62456592fa1aa300855d63651eda56a9.ctex"
+path="res://.godot/imported/projectile.png-b382655b75dbfa27f4318979978481f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/enemy/basic drone 1/projectile.png"
-dest_files=["res://.godot/imported/projectile.png-62456592fa1aa300855d63651eda56a9.ctex"]
+source_file="res://enemy/basic drone 1/projectile.png"
+dest_files=["res://.godot/imported/projectile.png-b382655b75dbfa27f4318979978481f4.ctex"]
 
 [params]
 

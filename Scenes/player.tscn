@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b0juigrq111um" path="res://Sprites/Explosions/explosion1.png" id="2_fkybt"]
 [ext_resource type="PackedScene" uid="uid://6rf754jltt1f" path="res://Scenes/bullet.tscn" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="3_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://cywtafao5yahr" path="res://Sprites/Player/spiked ship 3. small.green_.png" id="4_3smsa"]
+[ext_resource type="Texture2D" uid="uid://fyb0udqpmycp" path="res://Sprites/Player/working mech v2GSH_scaled.png" id="6_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b3iecejgql0mc" path="res://Sprites/Shields/shields.png" id="7_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://0eutb8ydc56g" path="res://Sprites/Shields/shields2.png" id="8_gymyn"]
 [ext_resource type="Texture2D" uid="uid://b6wtyjxa2xvga" path="res://Sprites/Shields/shields3.png" id="9_pu2lt"]
@@ -29,7 +29,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_3smsa")
+"texture": ExtResource("6_tx1dd")
 }],
 "loop": true,
 "name": &"default",
@@ -64,7 +64,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("7_tx1dd")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -110,6 +110,7 @@ rotation = 1.8326
 
 [node name="Shield" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7dp3o")
+speed_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="CannonTimer" to="." method="_on_cannon_timer_timeout"]

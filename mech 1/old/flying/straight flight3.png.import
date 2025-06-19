@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3mu3xan6ckth"
-path="res://.godot/imported/straight flight3.png-aeb68a71f1955cc172d7d68b5fa4c370.ctex"
+path="res://.godot/imported/straight flight3.png-4f616f2321b0aee92cdbc13c6f0abfad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mech 1/old/flying/straight flight3.png"
-dest_files=["res://.godot/imported/straight flight3.png-aeb68a71f1955cc172d7d68b5fa4c370.ctex"]
+source_file="res://mech 1/old/flying/straight flight3.png"
+dest_files=["res://.godot/imported/straight flight3.png-4f616f2321b0aee92cdbc13c6f0abfad.ctex"]
 
 [params]
 
