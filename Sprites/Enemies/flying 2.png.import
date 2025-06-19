@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpb5cvnfw5duo"
-path="res://.godot/imported/straight flight 2.png-2ec76b2ecaa7866a7f6329d3742e999f.ctex"
+uid="uid://b38q6duldmnx3"
+path="res://.godot/imported/flying 2.png-a0b05d40bcbfbb27b5ed9505d67d472a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mech 1/old/flying/straight flight 2.png"
-dest_files=["res://.godot/imported/straight flight 2.png-2ec76b2ecaa7866a7f6329d3742e999f.ctex"]
+source_file="res://Sprites/Enemies/flying 2.png"
+dest_files=["res://.godot/imported/flying 2.png-a0b05d40bcbfbb27b5ed9505d67d472a.ctex"]
 
 [params]
 

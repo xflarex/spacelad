@@ -1,7 +1,7 @@
 extends Node
 
-var hull = 1
-var cannons = 1
+var hull = 2
+var cannons = 2
 var thrusters = 1
 
 var max_hull = 5

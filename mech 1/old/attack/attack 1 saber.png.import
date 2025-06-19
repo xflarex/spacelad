@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cihhad4qmsy66"
-path="res://.godot/imported/attack 1 saber.png-5fd113a790d6fc13d9d6ed190e032c62.ctex"
+path="res://.godot/imported/attack 1 saber.png-d1dd1c0ff2467e751bab2dff31901930.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mech 1/old/attack/attack 1 saber.png"
-dest_files=["res://.godot/imported/attack 1 saber.png-5fd113a790d6fc13d9d6ed190e032c62.ctex"]
+source_file="res://mech 1/old/attack/attack 1 saber.png"
+dest_files=["res://.godot/imported/attack 1 saber.png-d1dd1c0ff2467e751bab2dff31901930.ctex"]
 
 [params]
 

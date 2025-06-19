@@ -84,10 +84,12 @@ func _on_body_entered(body: Node2D) -> void:
 	Ship.hull -= 1
 	if Ship.hull <= 0:
 		player_death()
-	$Shield.show()
-	$Shield.hide()
+		# Shield breaking animation here
+	else:
+		$Shield.show()
+		$Shield.play()
 
-func player_death(): # Untested
+func player_death():
 	$AnimatedSprite2D.animation = "death"
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.set_deferred("disabled", true)
