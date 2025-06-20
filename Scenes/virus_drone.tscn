@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://cv4o2jx2xim65"]
+
+[ext_resource type="Script" uid="uid://bgghmodk6inf1" path="res://Scripts/virus_drone.gd" id="1_i84fs"]
+[ext_resource type="Texture2D" uid="uid://ctqran0sc0je2" path="res://Sprites/Enemies/VirusDrone0.png" id="1_xupy6"]
+[ext_resource type="Texture2D" uid="uid://cchsmudrag202" path="res://Sprites/Asteroids/Red/Red_1.png" id="2_3q4co"]
+[ext_resource type="Texture2D" uid="uid://bn5qum3bvagpr" path="res://Sprites/Enemies/VirusDrone1.png" id="2_i84fs"]
+[ext_resource type="PackedScene" uid="uid://cf1aritl1a7lv" path="res://Scenes/enemy_bullet.tscn" id="2_qlio8"]
+[ext_resource type="Texture2D" uid="uid://bf1vslgxn67ad" path="res://Sprites/Asteroids/Red/Red_2.png" id="3_qlio8"]
+[ext_resource type="Texture2D" uid="uid://c3h0bb6ipix5k" path="res://Sprites/Enemies/VirusDrone2.png" id="3_sp6lj"]
+[ext_resource type="Texture2D" uid="uid://snu27m8kw27v" path="res://Sprites/Asteroids/Red/Red_3.png" id="4_ljjvx"]
+[ext_resource type="Texture2D" uid="uid://cfpfushvirekj" path="res://Sprites/Asteroids/Red/Red_4.png" id="5_avukr"]
+[ext_resource type="Texture2D" uid="uid://u6cqmbuxcb0s" path="res://Sprites/Asteroids/Gray/Gray_5.png" id="6_7unhc"]
+[ext_resource type="Texture2D" uid="uid://evsl8ak2ss6g" path="res://Sprites/Asteroids/Gray/Gray_6.png" id="7_bg40c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xupy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3q4co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qlio8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ljjvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_avukr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7unhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bg40c")
+}],
+"loop": false,
+"name": &"death",
+"speed": 35.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xupy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i84fs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sp6lj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i84fs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="VirusDrone" type="RigidBody2D" groups=["enemies"]]
+script = ExtResource("1_i84fs")
+enemy_bullet = ExtResource("2_qlio8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
+sprite_frames = SubResource("SpriteFrames_xupy6")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-38, 0, -33, -25, 33, -25, 38, 0, 0, 25)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="FirerateTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="FirerateTimer" to="." method="_on_firerate_timer_timeout"]

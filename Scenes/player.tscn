@@ -69,8 +69,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.5, 0.5)
+collision_mask = 129
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_fkybt")
 Bullet = ExtResource("2_x3wgy")
 
@@ -112,7 +115,6 @@ rotation = 1.8326
 sprite_frames = SubResource("SpriteFrames_7dp3o")
 speed_scale = 2.0
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="CannonTimer" to="." method="_on_cannon_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="animation_finished" from="Shield" to="." method="_on_shield_animation_finished"]
