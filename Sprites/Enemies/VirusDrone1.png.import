@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daar46316fx4a"
-path="res://.godot/imported/working mech v2GSH.png-237c38b63559a9dd00ad2fbd262ada73.ctex"
+uid="uid://bn5qum3bvagpr"
+path="res://.godot/imported/VirusDrone1.png-d596c0b4da0873070f382df65c2e46a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/working mech v2GSH.png"
-dest_files=["res://.godot/imported/working mech v2GSH.png-237c38b63559a9dd00ad2fbd262ada73.ctex"]
+source_file="res://Sprites/Enemies/VirusDrone1.png"
+dest_files=["res://.godot/imported/VirusDrone1.png-d596c0b4da0873070f382df65c2e46a6.ctex"]
 
 [params]
 

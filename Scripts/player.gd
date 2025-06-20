@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var Bullet : PackedScene
 var target = Vector2.ZERO
@@ -81,6 +81,7 @@ func player_fire():
 		ready_to_fire = false
 
 func _on_body_entered(body: Node2D) -> void:
+	#if body != $CollisionShape2D:		
 	Ship.hull -= 1
 	if Ship.hull <= 0:
 		player_death()
@@ -88,6 +89,15 @@ func _on_body_entered(body: Node2D) -> void:
 	else:
 		$Shield.show()
 		$Shield.play()
+func been_shot():
+	Ship.hull -= 1
+	if Ship.hull <= 0:
+		player_death()
+		# Shield breaking animation here
+	else:
+		$Shield.show()
+		$Shield.play()
+	
 
 func player_death():
 	$AnimatedSprite2D.animation = "death"
