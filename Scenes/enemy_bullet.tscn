@@ -9,13 +9,12 @@ height = 20.0
 
 [node name="enemy_bullet" type="Area2D"]
 z_index = -1
-collision_layer = 129
 script = ExtResource("1_54jiv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_54jiv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_tcvu8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_54jiv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

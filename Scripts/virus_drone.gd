@@ -26,7 +26,7 @@ func set_motion(direction, speed):
 func enemy_death():
 	$AnimatedSprite2D.animation = "death"
 	$AnimatedSprite2D.play()
-	$CollisionPolygon2D.set_deferred("disabled", true)
+	$CollisionShape2D.set_deferred("disabled", true)
 	increase_score()
 	
 func increase_score():
@@ -38,7 +38,6 @@ func clear_enemies():
 	get_tree().call_group("asteroids", "queue_free")
 	
 func weapons_free():
-	print($VisibleOnScreenNotifier2D.visible)
 	if ready_to_fire == true:
 		$FirerateTimer.wait_time = randf_range(0.5, 1.2)
 		fire_bullet()
@@ -65,3 +64,10 @@ func _on_firerate_timer_timeout() -> void:
 		fire_bullet()
 		ready_to_fire = false
 	else: ready_to_fire = true
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	print("entered ", body)
+	if body.is_in_group("player"):
+		print("entered ", body)
+		body.been_shot()

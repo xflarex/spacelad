@@ -25,6 +25,9 @@ func start():
 	$CollisionShape2D.disabled = false
 	$Shield.hide()
 
+func player_move_and_slide():
+	pass
+
 func player_movement(velocity, delta):
 	if Ship.hull > 0: # Check if still alive first
 		if Input.is_action_pressed(("move_left")):
@@ -82,13 +85,8 @@ func player_fire():
 
 func _on_body_entered(body: Node2D) -> void:
 	#if body != $CollisionShape2D:		
-	Ship.hull -= 1
-	if Ship.hull <= 0:
-		player_death()
-		# Shield breaking animation here
-	else:
-		$Shield.show()
-		$Shield.play()
+	been_shot()
+	
 func been_shot():
 	Ship.hull -= 1
 	if Ship.hull <= 0:

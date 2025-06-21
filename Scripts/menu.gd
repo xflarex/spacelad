@@ -65,8 +65,8 @@ func unpause():
 		
 	if Game.gamestate == Game.state.PAUSE_MENU && button_released == true:
 		if Input.is_action_pressed("pause_game"):
-			hide()
 			Game.gamestate = Game.state.PAUSE_MENU
+			hide()
 			button_released = false
 			get_tree().paused = false
 
@@ -87,11 +87,10 @@ func game_over():
 	show_menu()
 
 func _on_start_game_button_pressed() -> void:
-	print("started: ", started)
 	if started == false:
+		Game.gamestate = Game.state.MAIN_GAME
 		reset_stats()
 		started = true
-		Game.gamestate = Game.state.MAIN_GAME
 		button_released = true
 		start_game_button.text = "Resume"
 		hide()
