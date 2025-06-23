@@ -66,7 +66,6 @@ func player_fire():
 			var b = Bullet.instantiate()
 			owner.add_child(b)
 			b.transform = $Node2D/AnimatedSprite2D2/Muzzle00.global_transform
-			print($Node2D/AnimatedSprite2D2/Muzzle00.global_transform)
 		if Ship.cannons >= 2:
 			var b = Bullet.instantiate()
 			owner.add_child(b)
