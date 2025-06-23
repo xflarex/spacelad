@@ -198,6 +198,7 @@ visible = false
 rotation = 1.5708
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
+autoplay = "default"
 frame = 6
 frame_progress = 0.412814
 speed_scale = 2.0
