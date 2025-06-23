@@ -13,7 +13,6 @@ func _physics_process(delta: float) -> void:
 		var velocity = Vector2.ZERO
 		velocity = player_movement(velocity, delta)
 		player_movement_animation(velocity)
-		#look_at(target)
 		$Node2D.look_at(target)
 		player_fire()
 		Ship.player_node = self
@@ -62,26 +61,26 @@ func player_movement_animation(velocity): # This will probably look better as sp
 
 func player_fire():
 	if Input.is_action_pressed("fire") && ready_to_fire == true:
-		if Ship.cannons == 1:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Node2D/AnimatedSprite2D2/Muzzle00.global_transform
-		if Ship.cannons >= 2:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle2.global_transform
-			
-			var c = Bullet.instantiate()
-			owner.add_child(c)
-			c.transform = $Muzzle3.global_transform
-		if Ship.cannons >= 3:
-			var b = Bullet.instantiate()
-			owner.add_child(b)
-			b.transform = $Muzzle4.global_transform
-			
-			var c = Bullet.instantiate()
-			owner.add_child(c)
-			c.transform = $Muzzle5.global_transform
+		#if Ship.cannons == 1:
+		var b = Bullet.instantiate()
+		owner.add_child(b)
+		b.transform = $Node2D/AnimatedSprite2D2/Muzzle00.global_transform
+		#if Ship.cannons >= 2:
+			#var b = Bullet.instantiate()
+			#owner.add_child(b)
+			#b.transform = $Muzzle2.global_transform
+			#
+			#var c = Bullet.instantiate()
+			#owner.add_child(c)
+			#c.transform = $Muzzle3.global_transform
+		#if Ship.cannons >= 3:
+			#var b = Bullet.instantiate()
+			#owner.add_child(b)
+			#b.transform = $Muzzle4.global_transform
+			#
+			#var c = Bullet.instantiate()
+			#owner.add_child(c)
+			#c.transform = $Muzzle5.global_transform
 		
 		$CannonTimer.start()
 		ready_to_fire = false

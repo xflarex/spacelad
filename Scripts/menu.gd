@@ -20,9 +20,6 @@ var thruster_cost = Ship.thrusters * 1000
 @export var reset_stats_button: Button
 @export var quit_button: Button
 
-func _ready() -> void:
-	pass
-	
 func _process(delta: float) -> void:
 	unpause()
 	
@@ -104,9 +101,9 @@ func _on_reset_stats_button_pressed() -> void:
 
 func reset_stats():
 	Game.score = 0
-	Ship.cannons = 1
-	Ship.hull = 1
-	Ship.thrusters = 1
+	Ship.cannons = Ship.default_cannons
+	Ship.hull = Ship.default_hull
+	Ship.thrusters = Ship.default_thrusters
 	cannon_level_button.disabled = false
 	hull_level_button.disabled = false
 	thruster_level_button.disabled = false
