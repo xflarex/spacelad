@@ -9,7 +9,7 @@ var timer := Timer.new()
 var ready_to_fire = true
 
 var tracking = false
-var first_rotation = false
+var first_rotation = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,22 +17,17 @@ func _ready() -> void:
 	main = $main
 	add_child(timer)
 	if randi_range(0,2) == 0: tracking = true
-	#if tracking == true: rotation_degrees = 90
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(_delta: float) -> void:
-	#self.linear_velocity = Vector2(movement_direction, movement_speed)
-	##rotate_towards_player()
-	#weapons_free()
 func _physics_process(delta: float) -> void:
 	self.linear_velocity = Vector2(movement_direction, movement_speed)
-	#rotate_towards_player()
+	rotate_towards_player()
 	weapons_free()
 	
 
 func set_motion(direction, speed):
 	movement_direction = direction
 	movement_speed = speed
+	movement_speed = 200
 
 func enemy_death():
 	$AnimatedSprite2D.animation = "death"
@@ -58,13 +53,12 @@ func weapons_free():
 func rotate_towards_player():
 		if tracking == true && first_rotation == true:
 			
-			#rotation_degrees -= 90
 			look_at(Ship.player_node.global_position)
-			
-			#rotation += PI / 2
-			#untried
+			rotation -= PI / 2
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	ready_to_fire = false
+	death_mark = false
 	queue_free()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
@@ -80,7 +74,7 @@ func fire_bullet() -> void:
 
 func _on_firerate_timer_timeout() -> void:
 	if ready_to_fire == true:
-		$FirerateTimer.wait_time = randf_range(0.8, 1.2)
+		$FirerateTimer.wait_time = randf_range(2.0, 5.0)
 		fire_bullet()
 		ready_to_fire = false
 	else:

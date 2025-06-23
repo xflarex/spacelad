@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6rf754jltt1f"]
 
-[ext_resource type="Texture2D" uid="uid://cs8u0w7mhsrfa" path="res://Sprites/Projectiles/redshot.png" id="1_v7oki"]
 [ext_resource type="Script" uid="uid://difvkljil4f6g" path="res://Scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://b4v3qql80o8si" path="res://Sprites/Projectiles/purpleshot.png" id="2_oduel"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v8qja"]
 radius = 2.0
@@ -13,7 +13,7 @@ script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_v7oki")
+texture = ExtResource("2_oduel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
