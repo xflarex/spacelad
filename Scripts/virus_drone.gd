@@ -16,7 +16,9 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
 	main = $main
 	add_child(timer)
-	if randi_range(0,2) == 0: tracking = true
+	if randi_range(0,7) <= 1:
+		tracking = true
+		$AnimatedSprite2D.animation = "aggro"
 
 func _physics_process(delta: float) -> void:
 	self.linear_velocity = Vector2(movement_direction, movement_speed)
@@ -67,9 +69,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		$AnimatedSprite2D.stop()
 
 func fire_bullet() -> void:
-	var b = enemy_bullet.instantiate()
-	get_parent().add_child(b)
-	b.transform = $Muzzle.global_transform
+	if ready_to_fire == true && death_mark == false:
+		var b = enemy_bullet.instantiate()
+		get_parent().add_child(b)
+		b.transform = $Muzzle.global_transform
 
 
 func _on_firerate_timer_timeout() -> void:
