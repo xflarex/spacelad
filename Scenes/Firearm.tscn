@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dog17gkivquoe"]
+
+[ext_resource type="Script" uid="uid://d2xt7xuqbgh52" path="res://Scripts/firearm.gd" id="1_8dnga"]
+[ext_resource type="Texture2D" uid="uid://jdom8sanopl8" path="res://Sprites/Player/gun_arm_mech_1.png" id="1_u7fqx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8dnga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u7fqx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnwj8"]
+size = Vector2(39, 211)
+
+[node name="Firearm" type="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+motion_mode = 1
+script = ExtResource("1_8dnga")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(59, 156)
+sprite_frames = SubResource("SpriteFrames_8dnga")
+offset = Vector2(-59, -156)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-23.5, -32.5)
+shape = SubResource("RectangleShape2D_cnwj8")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(-25, -100)

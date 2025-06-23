@@ -13,8 +13,10 @@ func _physics_process(delta: float) -> void:
 		var velocity = Vector2.ZERO
 		velocity = player_movement(velocity, delta)
 		player_movement_animation(velocity)
-		look_at(target)
+		#look_at(target)
+		$Node2D.look_at(target)
 		player_fire()
+		Ship.player_node = self
 
 func _input(event: InputEvent) -> void:
 	target = get_viewport().get_mouse_position()
@@ -24,9 +26,6 @@ func start():
 	position.y = Game.screen_size.y * 0.75
 	$CollisionShape2D.disabled = false
 	$Shield.hide()
-
-func player_move_and_slide():
-	pass
 
 func player_movement(velocity, delta):
 	if Ship.hull > 0: # Check if still alive first
@@ -39,10 +38,15 @@ func player_movement(velocity, delta):
 		if Input.is_action_pressed(("move_down")):
 			velocity.y += 1
 	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * Ship.speed
+	if velocity.length() > 0: # Normalize diagonals
+		velocity = velocity.normalized() * 20
 	
-	position += velocity * delta
+	var collision = move_and_collide(velocity)
+	if collision:
+		if collision.get_collider().is_in_group("enemies"):
+			print(collision.get_collider())
+			collision.get_collider().enemy_death()
+			been_shot()
 	position = position.clamp(Vector2.ZERO, Game.screen_size)
 	
 	return velocity
@@ -50,19 +54,19 @@ func player_movement(velocity, delta):
 func player_movement_animation(velocity): # This will probably look better as sprites
 	if Ship.hull > 0:
 		if velocity.x == 0:
-			skew = 0
+			$AnimatedSprite2D.play("move_up")
 		elif velocity.x < 0:
-			skew = 25
+			$AnimatedSprite2D.play("move_left")
 		elif velocity.x > 0:
-			skew = -25
+			$AnimatedSprite2D.play("move_right")
 
 func player_fire():
 	if Input.is_action_pressed("fire") && ready_to_fire == true:
-	#if Input.is_action_pressed("fire"):
 		if Ship.cannons == 1:
 			var b = Bullet.instantiate()
 			owner.add_child(b)
-			b.transform = $Muzzle.global_transform
+			b.transform = $Node2D/AnimatedSprite2D2/Muzzle00.global_transform
+			print($Node2D/AnimatedSprite2D2/Muzzle00.global_transform)
 		if Ship.cannons >= 2:
 			var b = Bullet.instantiate()
 			owner.add_child(b)
