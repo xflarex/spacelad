@@ -12,9 +12,11 @@ z_index = -1
 script = ExtResource("1_v8qja")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_v7oki")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_v8qja")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

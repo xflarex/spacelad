@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcvkuddrqymwy"]
+[gd_scene load_steps=28 format=3 uid="uid://bcvkuddrqymwy"]
 
 [ext_resource type="Script" uid="uid://j2i23wymw14s" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="1_vgqql"]
@@ -6,10 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://6rf754jltt1f" path="res://Scenes/bullet.tscn" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="3_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://fyb0udqpmycp" path="res://Sprites/Player/working mech v2GSH_scaled.png" id="6_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://b3iecejgql0mc" path="res://Sprites/Shields/shields.png" id="7_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://0eutb8ydc56g" path="res://Sprites/Shields/shields2.png" id="8_gymyn"]
-[ext_resource type="Texture2D" uid="uid://b6wtyjxa2xvga" path="res://Sprites/Shields/shields3.png" id="9_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://djh2nl1eb2bat" path="res://Sprites/Shields/shields4.png" id="10_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://cxhlmp0mh2jb2" path="res://Sprites/Shields/shield 1.png" id="7_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://gnbc08q6on04" path="res://Sprites/Player/Mech1_flight_left1_scaled.png" id="7_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://cm2ltjsosxqpx" path="res://Sprites/Player/Mech1_flight_left2_scaled.png" id="8_bi64h"]
+[ext_resource type="Texture2D" uid="uid://c0e6u6e6e2bp1" path="res://Sprites/Shields/shield 2.png" id="8_gymyn"]
+[ext_resource type="Texture2D" uid="uid://cxtphs14e80x4" path="res://Sprites/Player/Mech1_flight_left3_scaled.png" id="9_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://crcki3vb8j6vp" path="res://Sprites/Shields/shield 3.png" id="9_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://b38q77ne6d0vc" path="res://Sprites/Player/Mech1_flight_left4_scaled.png" id="10_p1odr"]
+[ext_resource type="Texture2D" uid="uid://bb30o38cib4tk" path="res://Sprites/Shields/shield 4.png" id="10_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://dt1evm7aim5sm" path="res://Sprites/Player/Mech1_flight_right1_scaled.png" id="11_0gysh"]
+[ext_resource type="Texture2D" uid="uid://c5fcpa5js7oqr" path="res://Sprites/Player/Mech1_flight_right2_scaled.png" id="12_vfarp"]
+[ext_resource type="Texture2D" uid="uid://qgwrh2xlux06" path="res://Sprites/Player/Mech1_flight_right3_scaled.png" id="13_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://evsa246iw3vu" path="res://Sprites/Player/Mech1_flight_right4_scaled.png" id="14_83xs0"]
+[ext_resource type="Texture2D" uid="uid://b7yd0yv5xnuke" path="res://Sprites/Player/Mech1_flight_foward1_scaled.png" id="15_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://tfhbubktaj8q" path="res://Sprites/Player/Mech1_flight_foward2_scaled.png" id="16_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://bvyvbhsoe7m7j" path="res://Sprites/Player/Mech1_flight_foward3_scaled.png" id="17_wohnl"]
+[ext_resource type="Texture2D" uid="uid://btlegpneuoxue" path="res://Sprites/Player/Mech1_flight_foward4_scaled.png" id="18_36dho"]
+[ext_resource type="Texture2D" uid="uid://jdom8sanopl8" path="res://Sprites/Player/gun_arm_mech_1.png" id="23_bi64h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8erm5"]
 animations = [{
@@ -33,6 +46,62 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"move_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wpjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_bi64h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_2ijsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_p1odr")
+}],
+"loop": true,
+"name": &"move_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_0gysh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vfarp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y6uwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_83xs0")
+}],
+"loop": true,
+"name": &"move_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ypfnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xuaoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wohnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_36dho")
+}],
+"loop": true,
+"name": &"move_up",
 "speed": 5.0
 }]
 
@@ -69,6 +138,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ijsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_bi64h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(0.5, 0.5)
 collision_mask = 129
@@ -78,8 +158,10 @@ script = ExtResource("1_fkybt")
 Bullet = ExtResource("2_x3wgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_8erm5")
+animation = &"move_left"
+frame = 2
+frame_progress = 0.717141
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_vgqql")
@@ -112,8 +194,28 @@ position = Vector2(0, 50)
 rotation = 1.8326
 
 [node name="Shield" type="AnimatedSprite2D" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_7dp3o")
+frame = 6
+frame_progress = 0.412814
 speed_scale = 2.0
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-52, -48)
+rotation = 1.5708
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node2D"]
+z_index = -1
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_2ijsl")
+offset = Vector2(-25, -120)
+
+[node name="Muzzle00" type="Marker2D" parent="Node2D/AnimatedSprite2D2"]
+position = Vector2(-50, -300)
+scale = Vector2(5, 5)
 
 [connection signal="timeout" from="CannonTimer" to="." method="_on_cannon_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
