@@ -29,8 +29,8 @@ func set_levels():
 	thruster_level_label.text = str(Ship.thrusters)
 
 func update_costs():
-	cannon_cost = Ship.cannons * 1500
-	hull_cost = Ship.hull * 3000
+	cannon_cost = Ship.cannons * 1000
+	hull_cost = Ship.hull * 1500
 	thruster_cost = Ship.thrusters * 1000
 	
 	if Ship.cannons >= Ship.max_cannons:
