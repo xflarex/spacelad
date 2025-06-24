@@ -1,28 +1,27 @@
-[gd_scene load_steps=28 format=3 uid="uid://bcvkuddrqymwy"]
+[gd_scene load_steps=27 format=3 uid="uid://bcvkuddrqymwy"]
 
 [ext_resource type="Script" uid="uid://j2i23wymw14s" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="1_vgqql"]
 [ext_resource type="Texture2D" uid="uid://b0juigrq111um" path="res://Sprites/Explosions/explosion1.png" id="2_fkybt"]
 [ext_resource type="PackedScene" uid="uid://6rf754jltt1f" path="res://Scenes/bullet.tscn" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://ckhqtyetk51pv" path="res://Sprites/Explosions/explosion2.png" id="3_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://fyb0udqpmycp" path="res://Sprites/Player/working mech v2GSH_scaled.png" id="6_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://b3jsfeslunl0m" path="res://Sprites/Player/Mech1_flight_left1v2_scaled.png" id="7_bi64h"]
 [ext_resource type="Texture2D" uid="uid://cxhlmp0mh2jb2" path="res://Sprites/Shields/shield 1.png" id="7_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://gnbc08q6on04" path="res://Sprites/Player/Mech1_flight_left1_scaled.png" id="7_wpjfl"]
-[ext_resource type="Texture2D" uid="uid://cm2ltjsosxqpx" path="res://Sprites/Player/Mech1_flight_left2_scaled.png" id="8_bi64h"]
+[ext_resource type="Texture2D" uid="uid://b33wrln0ar7su" path="res://Sprites/Player/Mech1_flight_left2v2_scaled.png" id="8_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://c0e6u6e6e2bp1" path="res://Sprites/Shields/shield 2.png" id="8_gymyn"]
-[ext_resource type="Texture2D" uid="uid://cxtphs14e80x4" path="res://Sprites/Player/Mech1_flight_left3_scaled.png" id="9_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://cwwp6r2sghaaf" path="res://Sprites/Player/Mech1_flight_left3v2_scaled.png" id="9_p1odr"]
 [ext_resource type="Texture2D" uid="uid://crcki3vb8j6vp" path="res://Sprites/Shields/shield 3.png" id="9_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://b38q77ne6d0vc" path="res://Sprites/Player/Mech1_flight_left4_scaled.png" id="10_p1odr"]
+[ext_resource type="Texture2D" uid="uid://duyd2hwiwkyft" path="res://Sprites/Player/Mech1_flight_left4v2_scaled.png" id="10_0gysh"]
 [ext_resource type="Texture2D" uid="uid://bb30o38cib4tk" path="res://Sprites/Shields/shield 4.png" id="10_ukyrk"]
-[ext_resource type="Texture2D" uid="uid://dt1evm7aim5sm" path="res://Sprites/Player/Mech1_flight_right1_scaled.png" id="11_0gysh"]
-[ext_resource type="Texture2D" uid="uid://c5fcpa5js7oqr" path="res://Sprites/Player/Mech1_flight_right2_scaled.png" id="12_vfarp"]
-[ext_resource type="Texture2D" uid="uid://qgwrh2xlux06" path="res://Sprites/Player/Mech1_flight_right3_scaled.png" id="13_y6uwr"]
-[ext_resource type="Texture2D" uid="uid://evsa246iw3vu" path="res://Sprites/Player/Mech1_flight_right4_scaled.png" id="14_83xs0"]
-[ext_resource type="Texture2D" uid="uid://b7yd0yv5xnuke" path="res://Sprites/Player/Mech1_flight_foward1_scaled.png" id="15_ypfnu"]
-[ext_resource type="Texture2D" uid="uid://tfhbubktaj8q" path="res://Sprites/Player/Mech1_flight_foward2_scaled.png" id="16_xuaoq"]
-[ext_resource type="Texture2D" uid="uid://bvyvbhsoe7m7j" path="res://Sprites/Player/Mech1_flight_foward3_scaled.png" id="17_wohnl"]
-[ext_resource type="Texture2D" uid="uid://btlegpneuoxue" path="res://Sprites/Player/Mech1_flight_foward4_scaled.png" id="18_36dho"]
-[ext_resource type="Texture2D" uid="uid://jdom8sanopl8" path="res://Sprites/Player/gun_arm_mech_1.png" id="23_bi64h"]
+[ext_resource type="Texture2D" uid="uid://maubslwcw6qo" path="res://Sprites/Player/Mech1_flight_right1v2_scaled.png" id="11_vfarp"]
+[ext_resource type="Texture2D" uid="uid://boiusymch8ufm" path="res://Sprites/Player/Mech1_flight_right2v2_scaled.png" id="12_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://ddphk7ooeg4vb" path="res://Sprites/Player/Mech1_flight_right3v2_scaled.png" id="13_83xs0"]
+[ext_resource type="Texture2D" uid="uid://dlwcx1husau00" path="res://Sprites/Player/Mech1_flight_right4v2_scaled.png" id="14_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://d2tmrsg0bq1ij" path="res://Sprites/Player/Mech1_flight_foward1_scaled.png" id="15_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://b02str1qf67nj" path="res://Sprites/Player/Mech1_flight_foward2_scaled.png" id="16_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://dltvk8j1q8g0o" path="res://Sprites/Player/Mech1_flight_foward3_scaled.png" id="17_wohnl"]
+[ext_resource type="Texture2D" uid="uid://c2kp5ape8ell3" path="res://Sprites/Player/Mech1_flight_foward4_scaled.png" id="18_36dho"]
+[ext_resource type="Texture2D" uid="uid://bxor8qq6huvg2" path="res://Sprites/Player/gun_arm_mech_1.png" id="23_bi64h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8erm5"]
 animations = [{
@@ -42,7 +41,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_tx1dd")
+"texture": null
 }],
 "loop": true,
 "name": &"default",
@@ -55,16 +54,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_wpjfl")
+"texture": ExtResource("7_bi64h")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_bi64h")
+"texture": ExtResource("8_2ijsl")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_2ijsl")
+"texture": ExtResource("9_p1odr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_p1odr")
+"texture": ExtResource("10_0gysh")
 }],
 "loop": true,
 "name": &"move_left",
@@ -72,16 +71,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_0gysh")
+"texture": ExtResource("11_vfarp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_vfarp")
+"texture": ExtResource("12_y6uwr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_y6uwr")
+"texture": ExtResource("13_83xs0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_83xs0")
+"texture": ExtResource("14_ypfnu")
 }],
 "loop": true,
 "name": &"move_right",
@@ -159,9 +158,7 @@ Bullet = ExtResource("2_x3wgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8erm5")
-animation = &"move_left"
-frame = 2
-frame_progress = 0.717141
+animation = &"move_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_vgqql")
