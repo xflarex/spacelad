@@ -42,3 +42,8 @@ func _on_spawn_virus_drone_timer_timeout() -> void:
 	virus_drone.position = spawn_location
 	virus_drone.set_motion(randi_range(-50, 50), randi_range(300, 375)) # Switch to drone speed
 	add_child(virus_drone)
+
+
+func _on_level_timer_timeout() -> void:
+	$HUD.show_message("TieN Wins.")
+	$SpawnVirusDroneTimer.stop()

@@ -25,7 +25,12 @@ virus_drone_scene = ExtResource("3_6bp64")
 
 [node name="SpawnVirusDroneTimer" type="Timer" parent="."]
 
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
 [connection signal="update_score" from="Menu" to="HUD" method="update_score"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="SpawnVirusDroneTimer" to="." method="_on_spawn_virus_drone_timer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
