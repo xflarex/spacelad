@@ -1,13 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dog17gkivquoe"]
+[gd_scene load_steps=4 format=3 uid="uid://dog17gkivquoe"]
 
 [ext_resource type="Script" uid="uid://d2xt7xuqbgh52" path="res://Scripts/firearm.gd" id="1_8dnga"]
-[ext_resource type="Texture2D" uid="uid://jdom8sanopl8" path="res://Sprites/Player/gun_arm_mech_1.png" id="1_u7fqx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8dnga"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_u7fqx")
+"texture": null
 }],
 "loop": true,
 "name": &"default",

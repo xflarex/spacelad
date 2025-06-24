@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mp811udwxm2u"
-path="res://.godot/imported/Mech1_flight_right4.png-96df2a5f29e7e794b314c5a1d808c6db.ctex"
+uid="uid://b3jsfeslunl0m"
+path="res://.godot/imported/Mech1_flight_left1v2_scaled.png-75e68a99db5eaeb605b2b371f0db1258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/Mech1_flight_right4.png"
-dest_files=["res://.godot/imported/Mech1_flight_right4.png-96df2a5f29e7e794b314c5a1d808c6db.ctex"]
+source_file="res://Sprites/Player/Mech1_flight_left1v2_scaled.png"
+dest_files=["res://.godot/imported/Mech1_flight_left1v2_scaled.png-75e68a99db5eaeb605b2b371f0db1258.ctex"]
 
 [params]
 
