@@ -35,6 +35,7 @@ func enemy_death():
 	$AnimatedSprite2D.animation = "death"
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.set_deferred("disabled", true)
+	queue_free()
 	increase_score()
 	
 func increase_score():
@@ -43,7 +44,7 @@ func increase_score():
 		death_mark = true
 
 func clear_enemies():
-	get_tree().call_group("asteroids", "queue_free")
+	get_tree().call_group("enemies", "queue_free")
 	
 func weapons_free():
 	if ready_to_fire == true && death_mark == false:
