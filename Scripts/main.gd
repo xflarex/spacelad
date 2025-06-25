@@ -47,3 +47,15 @@ func _on_spawn_virus_drone_timer_timeout() -> void:
 func _on_level_timer_timeout() -> void:
 	$HUD.show_message("TieN Wins.")
 	$SpawnVirusDroneTimer.stop()
+
+
+
+
+
+
+
+
+func sudo_queue_free(node): #Child killer
+	for n in node.get_children():
+		node.remove_child(n)
+		n.queue_free() 

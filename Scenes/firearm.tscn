@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dog17gkivquoe"]
 
-[ext_resource type="Script" uid="uid://d2xt7xuqbgh52" path="res://Scripts/firearm.gd" id="1_8dnga"]
+[ext_resource type="Script" uid="uid://d2xt7xuqbgh52" path="res://Scripts/firearm.gd" id="1_5v46p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8dnga"]
 animations = [{
@@ -19,7 +19,7 @@ size = Vector2(39, 211)
 [node name="Firearm" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 motion_mode = 1
-script = ExtResource("1_8dnga")
+script = ExtResource("1_5v46p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(59, 156)
