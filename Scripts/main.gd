@@ -2,6 +2,7 @@ extends Node
 
 @export var asteroid_scene: PackedScene
 @export var virus_drone_scene: PackedScene
+@export var boss_scene: PackedScene
 var asteroid_spawn_location = Vector2.ZERO
 
 func _ready() -> void:
@@ -45,12 +46,18 @@ func _on_spawn_virus_drone_timer_timeout() -> void:
 
 
 func _on_level_timer_timeout() -> void:
-	$HUD.show_message("TieN Wins.")
+	$HUD.show_message("well shit.")
 	$SpawnVirusDroneTimer.stop()
+	load_boss()
 
-
-
-
+func load_boss():
+	var boss = boss_scene.instantiate()
+	var spawn_location_x = Game.screen_size.x / 2
+	var spawn_location = Vector2(spawn_location_x, -1000 )
+	boss.position = spawn_location
+	print(boss.position)
+	#boss.set_motion(0, 100) # Switch to drone speed
+	add_child(boss)
 
 
 

@@ -100,6 +100,7 @@ func been_shot():
 	
 
 func player_death():
+	$Node2D/AnimatedSprite2D2.hide()
 	$AnimatedSprite2D.animation = "death"
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.set_deferred("disabled", true)

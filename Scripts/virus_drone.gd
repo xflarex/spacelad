@@ -1,6 +1,8 @@
 extends RigidBody2D
 @export var enemy_bullet : PackedScene
 @export var points = 100
+@export var health = 100
+
 var movement_direction = 0
 var movement_speed = 0
 var death_mark = false
@@ -10,6 +12,7 @@ var ready_to_fire = true
 
 var tracking = false
 var first_rotation = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +33,11 @@ func set_motion(direction, speed):
 	movement_direction = direction
 	movement_speed = speed
 	movement_speed = 200
+
+func enemy_damage(damage):
+	health -= damage
+	if health <= 0:
+		enemy_death()
 
 func enemy_death():
 	$AnimatedSprite2D.animation = "death"

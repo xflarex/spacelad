@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://h42ylc1scjon"]
+
+[ext_resource type="Script" uid="uid://dkq113nlmdo2i" path="res://Scripts/cannon_hit.gd" id="1_k1lsc"]
+[ext_resource type="Texture2D" uid="uid://ff20yxqkkgqj" path="res://Materials/11 ExoticLiquidRed .png" id="2_8a5o3"]
+[ext_resource type="Texture2D" uid="uid://kim3gik5q3go" path="res://Materials/004 FlashIn2Green .png" id="3_8a5o3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8a5o3"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 13
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ggtiv"]
+particle_flag_disable_z = true
+radial_velocity_min = 0.999978
+radial_velocity_max = 0.999978
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+
+[node name="CannonHit" type="Node2D"]
+script = ExtResource("1_k1lsc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_8a5o3")
+emitting = false
+amount = 1
+texture = ExtResource("2_8a5o3")
+lifetime = 0.2
+one_shot = true
+speed_scale = 3.0
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_ggtiv")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.396078, 0, 0.529412)
+material = SubResource("CanvasItemMaterial_8a5o3")
+emitting = false
+amount = 20
+texture = ExtResource("3_8a5o3")
+lifetime = 0.2
+one_shot = true
+speed_scale = 3.0
+trail_lifetime = 1.0
+process_material = SubResource("ParticleProcessMaterial_ggtiv")

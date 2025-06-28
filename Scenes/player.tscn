@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bcvkuddrqymwy"]
+[gd_scene load_steps=27 format=3 uid="uid://bcvkuddrqymwy"]
 
 [ext_resource type="Script" uid="uid://j2i23wymw14s" path="res://Scripts/player.gd" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://dq2atv272m15y" path="res://Sprites/Explosions/explosion0.png" id="1_vgqql"]
@@ -21,9 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://b02str1qf67nj" path="res://Sprites/Player/Mech1_flight_foward2_scaled.png" id="16_xuaoq"]
 [ext_resource type="Texture2D" uid="uid://dltvk8j1q8g0o" path="res://Sprites/Player/Mech1_flight_foward3_scaled.png" id="17_wohnl"]
 [ext_resource type="Texture2D" uid="uid://c2kp5ape8ell3" path="res://Sprites/Player/Mech1_flight_foward4_scaled.png" id="18_36dho"]
-[ext_resource type="PackedScene" uid="uid://dl6pdco5jyp5g" path="res://Scenes/laser.tscn" id="23_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://bxor8qq6huvg2" path="res://Sprites/Player/gun_arm_mech_1.png" id="23_bi64h"]
-[ext_resource type="Script" uid="uid://bmtoxyxdqw8od" path="res://Scenes/laser.gd" id="24_2ijsl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8erm5"]
 animations = [{
@@ -216,10 +214,6 @@ offset = Vector2(-25, -120)
 [node name="Muzzle00" type="Marker2D" parent="Node2D/AnimatedSprite2D2"]
 position = Vector2(-50, -300)
 scale = Vector2(5, 5)
-
-[node name="EatMyLazer" parent="." instance=ExtResource("23_2ijsl")]
-target_position = Vector2(256, 0)
-script = ExtResource("24_2ijsl")
 
 [connection signal="timeout" from="CannonTimer" to="." method="_on_cannon_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
