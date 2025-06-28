@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6twhrjam7jcc"]
+
+[ext_resource type="Script" uid="uid://b2lxpaak8chbm" path="res://Scripts/boss.gd" id="1_wwfse"]
+[ext_resource type="Texture2D" uid="uid://6loevn36qvl8" path="res://Sprites/Enemies/boss_idle_1.png" id="2_n725y"]
+[ext_resource type="Texture2D" uid="uid://c7y3br8ussxxo" path="res://Sprites/Enemies/boss_idle_2.png" id="3_mh6p8"]
+[ext_resource type="Texture2D" uid="uid://neit0ux312v8" path="res://Sprites/Enemies/boss_idle_3.png" id="4_qtle2"]
+[ext_resource type="Texture2D" uid="uid://d11q5skk6g10h" path="res://Sprites/Enemies/boss_idle_4.png" id="5_yq25j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwfse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n725y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mh6p8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qtle2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yq25j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cxrok"]
+points = PackedVector2Array(-270, -625, -175, -625, 375, 200, 320, 530, -50, 530, -225, 350, -200, 0)
+
+[node name="Boss" type="RigidBody2D" groups=["boss"]]
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_wwfse")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["boss"]]
+sprite_frames = SubResource("SpriteFrames_wwfse")
+autoplay = "default"
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_cxrok")

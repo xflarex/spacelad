@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://jq1jm5tkk161"]
 
-[ext_resource type="FontFile" path="res://Fonts/Xolonium-Regular.ttf" id="1_e0onf"]
+[ext_resource type="FontFile" uid="uid://bs5h67nxcmwns" path="res://Fonts/Xolonium-Regular.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://c110cbhj4u8vd" path="res://Scripts/hud.gd" id="1_fccik"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -51,7 +51,7 @@ vertical_alignment = 1
 
 [node name="MessageTimer" type="Timer" parent="."]
 process_mode = 3
-wait_time = 2.0
+wait_time = 1.2
 one_shot = true
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_announcement_label_timer_timeout"]
