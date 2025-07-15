@@ -1,11 +1,12 @@
 extends RigidBody2D
 
 @export var basic_attack: PackedScene
-@export var health = 2000
+@export var health = 5000
 var points = 2000
 var death_mark = false
 var stat_menu
 var ready_to_attack = false
+var attacking := false
 
 func _physics_process(delta: float) -> void:
 	if position.y <= 300:
@@ -17,6 +18,7 @@ func _physics_process(delta: float) -> void:
 			$BasicAttackTimer.start()
 			ready_to_attack = true
 	basic_attack_rotate_towards()
+	fire_on_correct_frame()
 	
 
 func enemy_damage(damage):
@@ -44,7 +46,13 @@ func basic_attack_fire():
 
 func _on_basic_attack_timer_timeout() -> void:
 	$AnimatedSprite2D.play("BasicAttack")
-	basic_attack_fire()
+	attacking = true
+
+func fire_on_correct_frame():
+	if attacking == true:
+		if $AnimatedSprite2D.get_frame() == 6:
+			attacking = false
+			basic_attack_fire()
 
 func basic_attack_rotate_towards():
 	$Area2D.look_at(Ship.player_node.global_position)

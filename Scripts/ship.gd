@@ -13,5 +13,6 @@ var max_cannons = 3
 var max_thrusters = 5
 
 var speed = 1000
+var player_health = 100
 
 var player_node

@@ -25,7 +25,7 @@ boss_scene = ExtResource("4_344ge")
 [node name="SpawnVirusDroneTimer" type="Timer" parent="."]
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
@@ -44,3 +44,4 @@ visible = false
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
 [connection signal="start_game" from="StartMenu" to="." method="_on_start_menu_start_game"]
 [connection signal="next_level" from="StatMenu" to="." method="_on_stat_menu_next_level"]
+[connection signal="new_game" from="DeathMenu" to="." method="_on_death_menu_new_game"]

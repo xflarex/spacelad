@@ -23,7 +23,7 @@ func hit_particles():
 func rotate_towards(delta):
 	
 	var target_angle = global_position.angle_to_point(Ship.player_node.global_position) - PI/2.0
-	rotation = rotate_toward(rotation, target_angle, 0.5 * delta)
+	rotation = rotate_toward(rotation, target_angle, 1.2 * delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
