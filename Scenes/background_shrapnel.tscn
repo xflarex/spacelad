@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj4pi7t87lgb7"]
+
+[ext_resource type="PackedScene" uid="uid://mswbmhtygkgy" path="res://Scenes/shrapnel_sprite.tscn" id="2_2yhtc"]
+[ext_resource type="Texture2D" uid="uid://cceygo8gweonv" path="res://Backgrounds/broken gun.png" id="3_xi3a1"]
+[ext_resource type="Texture2D" uid="uid://dlkcdn6q45u6g" path="res://Backgrounds/broken mech.png" id="4_0brvp"]
+[ext_resource type="Texture2D" uid="uid://hsdjnelbxwc6" path="res://Backgrounds/broken shield.png" id="5_pckw7"]
+[ext_resource type="Texture2D" uid="uid://ygxtt3lmw00t" path="res://Backgrounds/broken sword.png" id="6_q0543"]
+
+[node name="BackgroundShrapnel" type="Node"]
+
+[node name="ShrapnelSprite" parent="." instance=ExtResource("2_2yhtc")]
+
+[node name="ShrapnelSprite2" parent="." instance=ExtResource("2_2yhtc")]
+texture = ExtResource("3_xi3a1")
+
+[node name="ShrapnelSprite3" parent="." instance=ExtResource("2_2yhtc")]
+texture = ExtResource("4_0brvp")
+
+[node name="ShrapnelSprite4" parent="." instance=ExtResource("2_2yhtc")]
+texture = ExtResource("5_pckw7")
+
+[node name="ShrapnelSprite5" parent="." instance=ExtResource("2_2yhtc")]
+texture = ExtResource("6_q0543")

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal game_over
 
 @export var Bullet : PackedScene
 var target = Vector2.ZERO
@@ -7,7 +8,7 @@ var ready_to_fire = true
 func _ready() -> void:
 	Game.screen_size = get_viewport_rect().size
 	start()
-
+	
 func _physics_process(delta: float) -> void:
 	if Game.gamestate != Game.state.PAUSE_MENU:
 		var velocity = Vector2.ZERO
@@ -61,32 +62,13 @@ func player_movement_animation(velocity): # This will probably look better as sp
 
 func player_fire():
 	if Input.is_action_pressed("fire") && ready_to_fire == true:
-		#if Ship.cannons == 1:
 		var b = Bullet.instantiate()
 		owner.add_child(b)
 		b.transform = $Node2D/AnimatedSprite2D2/Muzzle00.global_transform
-		#if Ship.cannons >= 2:
-			#var b = Bullet.instantiate()
-			#owner.add_child(b)
-			#b.transform = $Muzzle2.global_transform
-			#
-			#var c = Bullet.instantiate()
-			#owner.add_child(c)
-			#c.transform = $Muzzle3.global_transform
-		#if Ship.cannons >= 3:
-			#var b = Bullet.instantiate()
-			#owner.add_child(b)
-			#b.transform = $Muzzle4.global_transform
-			#
-			#var c = Bullet.instantiate()
-			#owner.add_child(c)
-			#c.transform = $Muzzle5.global_transform
-		
 		$CannonTimer.start()
 		ready_to_fire = false
 
 func _on_body_entered(body: Node2D) -> void:
-	#if body != $CollisionShape2D:		
 	been_shot()
 	
 func been_shot():
@@ -105,13 +87,13 @@ func player_death():
 	$AnimatedSprite2D.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$DeathTimer.start()
-	Game.gamestate = Game.state.PAUSE_MENU
+	Game.gamestate = Game.state.GAME_OVER
 
 func _on_death_timer_timeout() -> void:
 	hide()
 	$CollisionShape2D.disabled = false
-	get_tree().call_group("asteroids", "queue_free")
-	get_parent().death_menu()
+	#get_parent().death_menu()
+	game_over.emit()
 	get_tree().paused = true
 
 func _on_cannon_timer_timeout() -> void:
@@ -119,3 +101,6 @@ func _on_cannon_timer_timeout() -> void:
 
 func _on_shield_animation_finished() -> void:
 	$Shield.hide()
+
+func load_stat_menu():
+	%StatMenu.set_visible(true)

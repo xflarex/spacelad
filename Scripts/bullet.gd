@@ -25,5 +25,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("boss"):
 		hit_particles()
 		body.enemy_damage(Ship.cannons * damage)
-		print("boss hit")
 		queue_free()

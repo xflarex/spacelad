@@ -1,0 +1,108 @@
+[gd_scene load_steps=3 format=3 uid="uid://buy52m2ooe3gx"]
+
+[ext_resource type="Script" uid="uid://bd8a43reom8qn" path="res://Scripts/pause_menu.gd" id="1_k0w1u"]
+[ext_resource type="FontFile" uid="uid://bs5h67nxcmwns" path="res://Fonts/Xolonium-Regular.ttf" id="2_1och7"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+z_index = 1000
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0w1u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(700, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.137255, 1, 1, 0.231373)
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ColorRect/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0.69908, 0.918217, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 80
+text = "SpaceLad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ColorRect/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="QuitButton" type="Button" parent="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1och7")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]

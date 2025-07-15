@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://mswbmhtygkgy"]
+
+[ext_resource type="Texture2D" uid="uid://bmcw66l27qv5p" path="res://Backgrounds/broken enemy.png" id="1_eby7h"]
+[ext_resource type="Script" uid="uid://by1fnubkowpo4" path="res://Scripts/shrapnel_sprite.gd" id="2_hx3h7"]
+
+[node name="ShrapnelSprite" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_eby7h")
+script = ExtResource("2_hx3h7")
+max_wait = 40
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
