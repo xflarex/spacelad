@@ -1,15 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvjd4v36oqehe"]
+[gd_scene load_steps=8 format=3 uid="uid://corhme2sf82bu"]
 
 [ext_resource type="Script" uid="uid://p1udj4ifnu0d" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://d33h8bo7gtby6" path="res://Scenes/background.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cv4o2jx2xim65" path="res://Scenes/virus_drone.tscn" id="3_6bp64"]
 [ext_resource type="PackedScene" uid="uid://bcvkuddrqymwy" path="res://Scenes/player.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c6twhrjam7jcc" path="res://Scenes/boss.tscn" id="4_344ge"]
-[ext_resource type="PackedScene" uid="uid://b6lyl5pu0hen5" path="res://Scenes/start_menu.tscn" id="5_hptm8"]
+[ext_resource type="PackedScene" uid="uid://btttrkuv0ikhh" path="res://Scenes/menu.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://jq1jm5tkk161" path="res://Scenes/hud.tscn" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://dkr6wmj0ixcqr" path="res://Scenes/stat_menu.tscn" id="9_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://b8l6jhe5vm6gm" path="res://Scenes/death_menu.tscn" id="10_d1ilt"]
-[ext_resource type="PackedScene" uid="uid://buy52m2ooe3gx" path="res://Scenes/pause_menu.tscn" id="10_hptm8"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8gbba")
@@ -20,27 +17,21 @@ boss_scene = ExtResource("4_344ge")
 
 [node name="Player" parent="." instance=ExtResource("3_8gbba")]
 
+[node name="Menu" parent="." instance=ExtResource("4_jjvhh")]
+
 [node name="HUD" parent="." instance=ExtResource("5_kry3j")]
+
+[node name="AsteroidTimer" type="Timer" parent="."]
 
 [node name="SpawnVirusDroneTimer" type="Timer" parent="."]
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="StartMenu" parent="." instance=ExtResource("5_hptm8")]
-
-[node name="StatMenu" parent="." instance=ExtResource("9_ynf5e")]
-unique_name_in_owner = true
-visible = false
-
-[node name="PauseMenu" parent="." instance=ExtResource("10_hptm8")]
-
-[node name="DeathMenu" parent="." instance=ExtResource("10_d1ilt")]
-
-[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
+[connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
+[connection signal="update_score" from="Menu" to="HUD" method="update_score"]
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="SpawnVirusDroneTimer" to="." method="_on_spawn_virus_drone_timer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
-[connection signal="start_game" from="StartMenu" to="." method="_on_start_menu_start_game"]
-[connection signal="next_level" from="StatMenu" to="." method="_on_stat_menu_next_level"]

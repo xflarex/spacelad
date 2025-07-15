@@ -1,13 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6twhrjam7jcc"]
+[gd_scene load_steps=18 format=3 uid="uid://c6twhrjam7jcc"]
 
 [ext_resource type="Script" uid="uid://b2lxpaak8chbm" path="res://Scripts/boss.gd" id="1_wwfse"]
+[ext_resource type="PackedScene" uid="uid://bq3aci5653dr" path="res://Scenes/boss_basic_attack.tscn" id="2_42olf"]
 [ext_resource type="Texture2D" uid="uid://6loevn36qvl8" path="res://Sprites/Enemies/boss_idle_1.png" id="2_n725y"]
+[ext_resource type="Texture2D" uid="uid://bownqfcwr0ht" path="res://Sprites/Enemies/boss_basic_atk_1.png" id="2_r0blv"]
+[ext_resource type="Texture2D" uid="uid://d0gdc28yueiwe" path="res://Sprites/Enemies/boss_basic_atk_2.png" id="3_42olf"]
 [ext_resource type="Texture2D" uid="uid://c7y3br8ussxxo" path="res://Sprites/Enemies/boss_idle_2.png" id="3_mh6p8"]
+[ext_resource type="Texture2D" uid="uid://bsg6ij535cfc2" path="res://Sprites/Enemies/boss_basic_atk_3.png" id="4_hbq6j"]
 [ext_resource type="Texture2D" uid="uid://neit0ux312v8" path="res://Sprites/Enemies/boss_idle_3.png" id="4_qtle2"]
+[ext_resource type="Texture2D" uid="uid://31dj72i1upfa" path="res://Sprites/Enemies/boss_basic_atk_4.png" id="5_ursto"]
 [ext_resource type="Texture2D" uid="uid://d11q5skk6g10h" path="res://Sprites/Enemies/boss_idle_4.png" id="5_yq25j"]
+[ext_resource type="Texture2D" uid="uid://dnswiy0b3a15j" path="res://Sprites/Enemies/boss_basic_atk_5.png" id="6_lo233"]
+[ext_resource type="Texture2D" uid="uid://dwo4hb2vpx1dp" path="res://Sprites/Enemies/boss_basic_atk_6.png" id="7_c3eom"]
+[ext_resource type="Texture2D" uid="uid://brvf7edfmmcw1" path="res://Sprites/Enemies/boss_basic_atk_7.png" id="8_7xxu5"]
+[ext_resource type="Texture2D" uid="uid://tvso441hhfp" path="res://Sprites/Enemies/boss_basic_atk_8.png" id="9_ewv5o"]
+[ext_resource type="Texture2D" uid="uid://nd84o2j4rril" path="res://Sprites/Enemies/boss_basic_atk_9.png" id="10_d5t2u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wwfse"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r0blv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_42olf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hbq6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ursto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lo233")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c3eom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7xxu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ewv5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d5t2u")
+}],
+"loop": true,
+"name": &"BasicAttack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_n725y")
@@ -27,17 +69,34 @@ animations = [{
 }]
 
 [sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cxrok"]
-points = PackedVector2Array(-270, -625, -175, -625, 375, 200, 320, 530, -50, 530, -225, 350, -200, 0)
+points = PackedVector2Array(-140, -195, -20, -300, 100, -195, 58, -117, 52, 18, 134, 159, 27, 263, -99, 301, -146, 150, -83, 34, -92, -120)
 
 [node name="Boss" type="RigidBody2D" groups=["boss"]]
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_wwfse")
+basic_attack = ExtResource("2_42olf")
+metadata/_edit_lock_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["boss"]]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wwfse")
+animation = &"BasicAttack"
 autoplay = "default"
+frame = 6
+frame_progress = 0.634198
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("ConvexPolygonShape2D_cxrok")
+
+[node name="BasicAttackTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(145, 210)
+rotation = -1.5708
+
+[node name="Marker2D" type="Marker2D" parent="Area2D"]
+
+[connection signal="timeout" from="BasicAttackTimer" to="." method="_on_basic_attack_timer_timeout"]

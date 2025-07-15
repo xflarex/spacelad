@@ -20,6 +20,10 @@ var thruster_cost = Ship.thrusters * 1000
 @export var reset_stats_button: Button
 @export var quit_button: Button
 
+func _ready() -> void:
+	Game.screen_size = get_viewport().size
+	print(Game.screen_size)
+
 func _process(delta: float) -> void:
 	unpause()
 	
@@ -75,7 +79,7 @@ func show_menu():
 	update_costs()
 	show()
 	get_tree().paused = true
-	Game.gamestate = Game.state.PAUSE_MENU
+	Game.gamestate = Game.state.STAT_MENU
 	button_released = false
 
 func game_over():
@@ -143,14 +147,11 @@ func _on_asteroid_speed_slider_drag_ended(value_changed: bool) -> void:
 	Game.asteroid_speed = $MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedSlider.value
 	$MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedLabel.text = str(int(Game.asteroid_speed))
 
-
 func _on_asteroid_frequency_slider_drag_ended(value_changed: bool) -> void:
 	get_parent().modify_asteroid_timer($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencySlider.value)
 
-
 func _on_asteroid_frequency_slider_value_changed(value: float) -> void:
 	$MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencyLabel.text = str($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer2/VBoxContainer/HBoxContainer/AsteroidFrequencySlider.value)
-
 
 func _on_asteroid_speed_slider_value_changed(value: float) -> void:
 	$MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedLabel.text = str(int($MarginContainer/ColorRect/VSplitContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AsteroidSpeedSlider.value))

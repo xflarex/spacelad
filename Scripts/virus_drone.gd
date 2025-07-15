@@ -6,10 +6,8 @@ extends RigidBody2D
 var movement_direction = 0
 var movement_speed = 0
 var death_mark = false
-var main
 var timer := Timer.new()
 var ready_to_fire = true
-
 var tracking = false
 var first_rotation = true
 
@@ -17,14 +15,13 @@ var first_rotation = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
-	main = $main
 	add_child(timer)
 	if randi_range(0,7) <= 1:
 		tracking = true
 		$AnimatedSprite2D.animation = "aggro"
 
 func _physics_process(delta: float) -> void:
-	self.linear_velocity = Vector2(movement_direction, movement_speed)
+	self.linear_velocity = Vector2(movement_direction, movement_speed) # This shouoldn't be set repeatedly
 	rotate_towards_player()
 	weapons_free()
 	
