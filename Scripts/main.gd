@@ -13,12 +13,15 @@ func _process(delta: float) -> void:
 			$PauseMenu.pause()
 	load_stat_menu()
 
-func _on_menu_start_game() -> void:
+func start_game():
 	$HUD/MessageTimer.start()
 	$HUD.show_message("Prepare yourself.")
 	$Player.show()
 	await get_tree().create_timer(2.0).timeout
 	$SpawnVirusDroneTimer.start()
+
+func _on_menu_start_game() -> void:
+	start_game()
 
 func _on_spawn_virus_drone_timer_timeout() -> void:
 	var virus_drone = virus_drone_scene.instantiate()
@@ -65,6 +68,19 @@ func _on_stat_menu_next_level() -> void:
 	$HUD/MessageTimer.start()
 	$HUD.show_message("Prepare yourself.")
 	$Player.show()
+	await get_tree().create_timer(2.0).timeout
+	$SpawnVirusDroneTimer.start()
+	$LevelTimer.start()
+
+
+func _on_death_menu_new_game() -> void:
+	get_tree().call_group("enemies", "queue_free")
+	get_tree().call_group("boss", "queue_free")
+	start_game()
+	$HUD.show_message("Prepare yourself.")
+	$Player.start()
+	$SpawnVirusDroneTimer.stop()
+	$LevelTimer.stop()
 	await get_tree().create_timer(2.0).timeout
 	$SpawnVirusDroneTimer.start()
 	$LevelTimer.start()

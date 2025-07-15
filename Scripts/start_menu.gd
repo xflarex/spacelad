@@ -13,3 +13,7 @@ func _on_start_game_button_pressed() -> void:
 	visible = false
 	get_tree().paused = false
 	start_game.emit()
+
+func _on_quit_button_pressed() -> void:
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()

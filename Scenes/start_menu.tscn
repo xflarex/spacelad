@@ -107,3 +107,4 @@ theme_override_font_sizes/font_size = 30
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ColorRect/VSplitContainer/HBoxContainer2/MarginContainer/VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]

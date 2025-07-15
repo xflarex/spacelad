@@ -26,9 +26,10 @@ func start():
 	position.y = Game.screen_size.y * 0.75
 	$CollisionShape2D.disabled = false
 	$Shield.hide()
+	Ship.player_health = 100 * Ship.hull
 
 func player_movement(velocity, delta):
-	if Ship.hull > 0: # Check if still alive first
+	if Ship.player_health > 0: # Check if still alive first
 		if Input.is_action_pressed(("move_left")):
 			velocity.x -= 1
 		if Input.is_action_pressed(("move_right")):
@@ -46,13 +47,13 @@ func player_movement(velocity, delta):
 		if collision.get_collider().is_in_group("enemies"):
 			print(collision.get_collider())
 			collision.get_collider().enemy_death()
-			been_shot()
+			been_shot(100)
 	position = position.clamp(Vector2.ZERO, Game.screen_size)
 	
 	return velocity
 
 func player_movement_animation(velocity): # This will probably look better as sprites
-	if Ship.hull > 0:
+	if Ship.player_health > 0:
 		if velocity.x == 0:
 			$AnimatedSprite2D.play("move_up")
 		elif velocity.x < 0:
@@ -69,11 +70,11 @@ func player_fire():
 		ready_to_fire = false
 
 func _on_body_entered(body: Node2D) -> void:
-	been_shot()
+	been_shot(100)
 	
-func been_shot():
-	Ship.hull -= 1
-	if Ship.hull <= 0:
+func been_shot(damage):
+	Ship.player_health -= damage
+	if Ship.player_health <= 0:
 		player_death()
 		# Shield breaking animation here
 	else:
