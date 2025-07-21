@@ -28,7 +28,7 @@ func rotate_towards(delta):
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		hit_particles()
-		body.been_shot()
+		body.been_shot(100)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()

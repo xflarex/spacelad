@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6twhrjam7jcc"]
+[gd_scene load_steps=25 format=3 uid="uid://c6twhrjam7jcc"]
 
 [ext_resource type="Script" uid="uid://b2lxpaak8chbm" path="res://Scripts/boss.gd" id="1_wwfse"]
 [ext_resource type="PackedScene" uid="uid://bq3aci5653dr" path="res://Scenes/boss_basic_attack.tscn" id="2_42olf"]
@@ -15,6 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://brvf7edfmmcw1" path="res://Sprites/Enemies/boss_basic_atk_7.png" id="8_7xxu5"]
 [ext_resource type="Texture2D" uid="uid://tvso441hhfp" path="res://Sprites/Enemies/boss_basic_atk_8.png" id="9_ewv5o"]
 [ext_resource type="Texture2D" uid="uid://nd84o2j4rril" path="res://Sprites/Enemies/boss_basic_atk_9.png" id="10_d5t2u"]
+[ext_resource type="Texture2D" uid="uid://bf6wyhhgerscm" path="res://Sprites/Enemies/boss_lzr_atk_1.png" id="12_ewv5o"]
+[ext_resource type="Texture2D" uid="uid://cgpj0vw28tmda" path="res://Sprites/Enemies/boss_lzr_atk_2.png" id="13_d5t2u"]
+[ext_resource type="Texture2D" uid="uid://3en6gvhesnyy" path="res://Sprites/Enemies/boss_lzr_atk_3.png" id="14_pfkk2"]
+[ext_resource type="Texture2D" uid="uid://dl4qi54jlqvgr" path="res://Sprites/Enemies/boss_lzr_atk_4.png" id="15_uye1q"]
+[ext_resource type="Texture2D" uid="uid://bv8fp5d8ultfn" path="res://Sprites/Enemies/boss_lzr_atk_5.png" id="16_wbwar"]
+[ext_resource type="Texture2D" uid="uid://bs54vmul5fd27" path="res://Sprites/Enemies/boss_lzr_atk_6.png" id="17_k85sf"]
+[ext_resource type="PackedScene" uid="uid://dl6pdco5jyp5g" path="res://Scenes/laser.tscn" id="22_d5t2u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wwfse"]
 animations = [{
@@ -52,6 +59,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_ewv5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d5t2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pfkk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_uye1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wbwar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_k85sf")
+}],
+"loop": true,
+"name": &"LaserAttack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_n725y")
 }, {
 "duration": 1.0,
@@ -83,8 +113,8 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wwfse")
 animation = &"BasicAttack"
 autoplay = "default"
-frame = 6
-frame_progress = 0.634198
+frame = 1
+frame_progress = 0.332743
 speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -98,5 +128,13 @@ position = Vector2(145, 210)
 rotation = -1.5708
 
 [node name="Marker2D" type="Marker2D" parent="Area2D"]
+
+[node name="LaserMount" type="Area2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserMount"]
+position = Vector2(0, 200)
+
+[node name="Laser" parent="LaserMount/Marker2D" instance=ExtResource("22_d5t2u")]
+rotation = 1.5708
 
 [connection signal="timeout" from="BasicAttackTimer" to="." method="_on_basic_attack_timer_timeout"]

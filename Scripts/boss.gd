@@ -2,6 +2,9 @@ extends RigidBody2D
 
 @export var basic_attack: PackedScene
 @export var health = 5000
+
+@onready var laser := $LaserMount/Marker2D/Laser
+
 var points = 2000
 var death_mark = false
 var stat_menu
@@ -38,6 +41,15 @@ func increase_score():
 	if death_mark == false: # Prevent multiple bullets from counting score from the same enemy
 		Game.score += points
 		death_mark = true
+
+func _process(delta: float) -> void:
+	if laser:
+		print("Ship.global_transform: ", Ship.player_node.global_transform.origin)
+		laser.set_direction(Ship.player_node.global_transform.origin)
+		laser.is_casting = Input.is_action_pressed("test_key")
+	
+func fire_laser():
+	pass
 
 func basic_attack_fire():
 	var b = basic_attack.instantiate()

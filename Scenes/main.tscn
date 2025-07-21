@@ -25,14 +25,13 @@ boss_scene = ExtResource("4_344ge")
 [node name="SpawnVirusDroneTimer" type="Timer" parent="."]
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
 [node name="StartMenu" parent="." instance=ExtResource("5_hptm8")]
 
 [node name="StatMenu" parent="." instance=ExtResource("9_ynf5e")]
-unique_name_in_owner = true
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("10_hptm8")]

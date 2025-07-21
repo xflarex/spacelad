@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq3aci5653dr"]
 
-[ext_resource type="Script" uid="uid://5pbcodwxn2bi" path="res://boss_basic_attack.gd" id="1_1s8j1"]
+[ext_resource type="Script" uid="uid://5pbcodwxn2bi" path="res://Scripts/boss_basic_attack.gd" id="1_1s8j1"]
 [ext_resource type="PackedScene" uid="uid://h42ylc1scjon" path="res://Scenes/cannon_hit.tscn" id="2_pvjc6"]
 [ext_resource type="Texture2D" uid="uid://chgauq681tqc4" path="res://Sprites/Projectiles/boss_projectile.png" id="2_x5xhu"]
 
