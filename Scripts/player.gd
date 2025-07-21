@@ -5,6 +5,9 @@ signal game_over
 var target = Vector2.ZERO
 var ready_to_fire = true
 
+
+@onready var laser := $Laser
+
 func _ready() -> void:
 	Game.screen_size = get_viewport_rect().size
 	start()
@@ -17,6 +20,9 @@ func _physics_process(delta: float) -> void:
 		$Node2D.look_at(target)
 		player_fire()
 		Ship.player_node = self
+
+#func _process(delta: float) -> void:
+	#laser.is_casting = Input.is_action_pressed("test_key")
 
 func _input(event: InputEvent) -> void:
 	target = get_viewport().get_mouse_position()

@@ -8,10 +8,13 @@ func _ready() -> void:
 	get_tree().paused = true
 
 func _process(delta: float) -> void:
+	pause_game()
+	load_stat_menu()
+	
+func pause_game():
 	if Game.gamestate != Game.state.PAUSE_MENU:
 		if Input.is_action_just_pressed("pause_game"):
 			$PauseMenu.pause()
-	load_stat_menu()
 
 func start_game():
 	$HUD/MessageTimer.start()
@@ -28,7 +31,7 @@ func _on_spawn_virus_drone_timer_timeout() -> void:
 	var spawn_location_x = randf_range(0, Game.screen_size.x)
 	var spawn_location = Vector2(spawn_location_x, 0 )
 	virus_drone.position = spawn_location
-	virus_drone.set_motion(randi_range(-50, 50), randi_range(300, 375)) # Switch to drone speed
+	virus_drone.set_motion() # Switch to drone speed
 	add_child(virus_drone)
 
 func _on_level_timer_timeout() -> void:
@@ -41,14 +44,7 @@ func load_boss():
 	var spawn_location_x = Game.screen_size.x / 2
 	var spawn_location = Vector2(spawn_location_x, -1000 )
 	boss.position = spawn_location
-	print(boss.position)
-	#boss.set_motion(0, 100) # Switch to drone speed
 	add_child(boss)
-
-func sudo_queue_free(node): #Child killer
-	for n in node.get_children():
-		node.remove_child(n)
-		n.queue_free() 
 
 func load_stat_menu():
 	if Game.gamestate == Game.state.STAT_MENU:
@@ -78,9 +74,9 @@ func _on_death_menu_new_game() -> void:
 	get_tree().call_group("boss", "queue_free")
 	start_game()
 	$HUD.show_message("Prepare yourself.")
-	$Player.start()
 	$SpawnVirusDroneTimer.stop()
 	$LevelTimer.stop()
+	$Player.start()
 	await get_tree().create_timer(2.0).timeout
 	$SpawnVirusDroneTimer.start()
 	$LevelTimer.start()

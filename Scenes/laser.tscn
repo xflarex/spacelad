@@ -1,103 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl6pdco5jyp5g"]
+[gd_scene load_steps=2 format=3 uid="uid://dl6pdco5jyp5g"]
 
-[ext_resource type="Texture2D" uid="uid://cpipkpid5wufr" path="res://Sprites/glowing_circle.png" id="1_r1bh0"]
+[ext_resource type="Script" uid="uid://dq3fbskimmj8d" path="res://Scripts/laser.gd" id="1_r1bh0"]
 
-[sub_resource type="Curve" id="Curve_r1bh0"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.632979, 1), 0.0, 0.0, 0, 0, Vector2(0.851064, 0.168539), 0.0, 0.0, 0, 0]
-point_count = 3
+[node name="Laser" type="RayCast2D"]
+script = ExtResource("1_r1bh0")
+is_casting = true
 
-[sub_resource type="CurveTexture" id="CurveTexture_mou6w"]
-width = 2048
-curve = SubResource("Curve_r1bh0")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r1bh0"]
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_mou6w")
-
-[sub_resource type="Gradient" id="Gradient_r1bh0"]
-offsets = PackedFloat32Array(0.864198, 0.932099, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.654321, 0.654321, 0.654321, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_mou6w"]
-gradient = SubResource("Gradient_r1bh0")
-
-[sub_resource type="Curve" id="Curve_3pc01"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_c8ure"]
-curve = SubResource("Curve_3pc01")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mou6w"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-gravity = Vector3(0, 0, 0)
-scale_min = 0.3
-scale_max = 0.3
-scale_curve = SubResource("CurveTexture_c8ure")
-color_ramp = SubResource("GradientTexture1D_mou6w")
-
-[sub_resource type="Gradient" id="Gradient_mou6w"]
-offsets = PackedFloat32Array(0, 0.697531, 0.839506, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.926708, 0.926708, 0.926708, 1, 0.919753, 0.919753, 0.919753, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3pc01"]
-gradient = SubResource("Gradient_mou6w")
-
-[sub_resource type="Curve" id="Curve_mou6w"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.659575, 0.247191), -1.92868, -1.92868, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_3pc01"]
-curve = SubResource("Curve_mou6w")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3pc01"]
-particle_flag_disable_z = true
-spread = 50.0
-initial_velocity_min = 300.0
-initial_velocity_max = 300.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_3pc01")
-color_ramp = SubResource("GradientTexture1D_3pc01")
-
-[node name="EatMyLazer" type="RayCast2D"]
-
-[node name="Line2D" type="Line2D" parent="."]
-unique_name_in_owner = true
-modulate = Color(0.506068, 0.00196075, 0.740131, 1)
-points = PackedVector2Array(0, 0, 100, 0)
+[node name="Beam" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 2000, 0)
+width = 70.0
+joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
-
-[node name="CastingParticles2D" type="GPUParticles2D" parent="."]
-unique_name_in_owner = true
-texture = ExtResource("1_r1bh0")
-lifetime = 0.3
-visibility_rect = Rect2(0, -18.722, 29.676, 38.484)
-process_material = SubResource("ParticleProcessMaterial_r1bh0")
-
-[node name="CollisionParticles2D" type="GPUParticles2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(720, 0)
-texture = ExtResource("1_r1bh0")
-preprocess = 1.0
-randomness = 1.0
-visibility_rect = Rect2(-2500, -2500, 5000, 5000)
-process_material = SubResource("ParticleProcessMaterial_mou6w")
-
-[node name="BeamParticles2D" type="GPUParticles2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-emitting = false
-amount = 16
-texture = ExtResource("1_r1bh0")
-lifetime = 0.3
-visibility_rect = Rect2(-2500, -2500, 5000, 5000)
-process_material = SubResource("ParticleProcessMaterial_3pc01")

@@ -6,30 +6,23 @@ extends RigidBody2D
 var movement_direction = 0
 var movement_speed = 0
 var death_mark = false
-var timer := Timer.new()
 var ready_to_fire = true
 var tracking = false
-var first_rotation = true
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
-	add_child(timer)
 	if randi_range(0,7) <= 1:
 		tracking = true
 		$AnimatedSprite2D.animation = "aggro"
 
 func _physics_process(delta: float) -> void:
-	self.linear_velocity = Vector2(movement_direction, movement_speed) # This shouoldn't be set repeatedly
 	rotate_towards_player()
 	weapons_free()
-	
 
-func set_motion(direction, speed):
-	movement_direction = direction
-	movement_speed = speed
-	movement_speed = 200
+func set_motion():
+	movement_direction = randi_range(-50, 50)
+	movement_speed = randi_range(150,250)
+	self.linear_velocity = Vector2(movement_direction, movement_speed)
 
 func enemy_damage(damage):
 	health -= damage
@@ -59,10 +52,9 @@ func weapons_free():
 		ready_to_fire = false
 
 func rotate_towards_player():
-		if tracking == true && first_rotation == true:
-			
-			look_at(Ship.player_node.global_position)
-			rotation -= PI / 2
+	if tracking == true:
+		look_at(Ship.player_node.global_position)
+		rotation -= PI / 2
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	ready_to_fire = false
@@ -80,7 +72,6 @@ func fire_bullet() -> void:
 		get_parent().add_child(b)
 		b.transform = $Muzzle.global_transform
 
-
 func _on_firerate_timer_timeout() -> void:
 	if ready_to_fire == true:
 		$FirerateTimer.wait_time = randf_range(2.0, 5.0)
@@ -88,11 +79,7 @@ func _on_firerate_timer_timeout() -> void:
 		ready_to_fire = false
 	else:
 		ready_to_fire = true
-		first_rotation = true
-
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	print("entered ", body)
 	if body.is_in_group("player"):
-		print("entered ", body)
 		body.been_shot()
